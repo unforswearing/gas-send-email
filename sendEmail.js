@@ -34,7 +34,6 @@
    - [] run the debugRunner for the test submission
    - [] does the main 'sendEmail' script need to be
         modified for any reason?
-   - [] add all project links to the form catalog
 */
 
 // run 'debugRunner()' when testing
