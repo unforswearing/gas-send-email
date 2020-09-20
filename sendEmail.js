@@ -35,7 +35,8 @@
         'recipient', if needed
    - [] submit a test response and run the
         debugRunner function to test the script.
-   - [] add an 'On Form Submit' trigger to begin using the script
+   - [] add an 'On Form Submit' trigger to run the sendEmail function
+        for each form submission.
 
 */
 
