@@ -7,8 +7,9 @@
   references to "anwerArray[0]" to point to which ever column contains the
   timestamp.
 
-  form: <form url>
-  responses: <responses sheet url>
+  ------------------
+  Script Information
+  ------------------
 
   Send Email Script: Send form responses to additional addresses
     - Google forms currently limit the submission receipts
@@ -16,13 +17,16 @@
     - This script allows responses to be sent to other addresses
       for various purposes.
 
-   ////////////////////////////////////////////////////
-   Complete this TO DO list when adding to new projects
-   ///////////////////////////////////////////////////
+  ---------------------------------------------------------
+
+   ::: Complete this TO DO list when adding to new projects
+
+  form: <form url>
+  responses: <responses sheet url>
 
    TO DO
-   - [] add links to the form and responses sheet
-        at the start of this comment
+   - [] add links to the form and responses sheet to "form"
+        and "responses" above this TO DO list
    - [] complete the 'procParams' object below
         including any 'false' items, 'helper' items, and
         'recipient', if needed
