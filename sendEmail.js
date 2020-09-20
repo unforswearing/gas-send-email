@@ -7,6 +7,9 @@
   references to "anwerArray[0]" to point to which ever column contains the
   timestamp.
 
+  After completing the TO DO list below, this script should operate succesfully,
+  with no additional modification to the 'sendEmail' function.
+
   ------------------
   Script Information
   ------------------
@@ -30,10 +33,10 @@
    - [] complete the 'procParams' object below
         including any 'false' items, 'helper' items, and
         'recipient', if needed
-   - [] submit a test submission through the associated form
-   - [] run the debugRunner for the test submission
-   - [] does the main 'sendEmail' script need to be
-        modified for any reason?
+   - [] submit a test response and run the
+        debugRunner function to test the script.
+   - [] add an 'On Form Submit' trigger to begin using the script
+
 */
 
 // run 'debugRunner()' when testing
@@ -42,7 +45,7 @@ function debugRunner() {
   admin = undefined;
 
   try {
-    sendEmail(debug)
+    sendEmail(debug);
   } catch (e) {
     var emsg = 'Script ran into an error!\n\n' + e;
     MailApp.sendEmail(
