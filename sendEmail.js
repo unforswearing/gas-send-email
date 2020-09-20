@@ -7,7 +7,7 @@
   references to "anwerArray[0]" to point to which ever column contains the
   timestamp.
 
-  After completing the TO DO list below, this script should operate succesfully,
+  After completing the TO DO list below this script should operate succesfully,
   with no additional modification to the 'sendEmail' function.
 
   ------------------
