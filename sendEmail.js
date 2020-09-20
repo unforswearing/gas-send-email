@@ -107,7 +107,7 @@ var procParams = function () {
 };
 
 // main runner function. on form submit, execute sendEmail, end script.
-// sendEmail(sheetId, formName, timestampColsArray)
+// sendEmail(true) to send all notifications to 'admin' for testing
 function sendEmail(debug) {
   // create the helper object
   var parameters = procParams();
