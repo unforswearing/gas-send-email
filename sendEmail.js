@@ -1,28 +1,37 @@
 /*
+  Repository: https://github.com/unforswearing/gas-send-email
+
+  @todo revise these instructions and add them to the github readme
   A simple script to collect form responses and send email notifications
   with the option for additional processing, if needed.
 
+  @todo this should work, but needs to be tested again
   Note: Column A is the default "Timestamp" column in the responses sheet. You can work around this by changing any references to "answerArray[0]" to point to which ever column contains the timestamp.
 
-  After completing the TO DO list below this script should operate succesfully,
+  After completing the SCRIPT TO DO list below this script should operate succesfully,
   with no additional modification to the 'sendEmail' function.
 
   ------------------
   Script Information
   ------------------
 
+  @todo clarify explanation
   Send Email Script: Send form responses to additional addresses
     - Google forms currently limit the submission receipts
       to the user who submitted the form.
     - This script allows responses to be sent to other addresses
       for various purposes.
 
-   ::: Complete this TO DO list when adding to new projects ::::
-
+  @todo add these as constants above 'const admin'
+        > they can be used to extract the sheet id
+        > and form name for emails
   form: <form url>
   responses: <responses sheet url>
 
-   TO DO
+   ::: Complete this TO DO list when adding to new projects ::::
+   @todo improve, clarify, verify these steps
+
+   SCRIPT TO DO
    - [] add links to the live form and responses sheet in the "form" 
         and "responses" keys above.
    - [] add the admin email address (possibly yours) to the 'admin' 
@@ -35,7 +44,11 @@
         debugRunner function to test the script.
    - [] add an 'On Form Submit' trigger to run the sendEmail function
         for each form submission.
+*/
 
+/*
+const formUrl = ''
+const responsesUrl = ''
 */
 
 const admin = undefined
@@ -66,16 +79,21 @@ function procParams() {
       admin: admin,
       // add any recipient names or code to the
       // > executor.data.recipient function below
+      // NOTE formName and sheetId will be extracted from 
+      // const formName and const sheet
       formName: undefined,
       recipient: undefined,
       // leave emailFooter blank if it is not needed
       emailFooter: '',
       // NOTE sheetID is required for this script to work properly
+      // NOTE formName and sheetId will be extracted from 
+      // const formName and const sheet
       sheetId: '',
       // used to extract the form name from the sheet name.
       // > the 'responses' default is typical for most forms
       sheetNameFilter: ' (Responses)',
       // used to create the email subject from the sheet name.
+      // @todo verify the steps to change the sheetNameFilter work properly
       // the text in the subjectFilter will be added to the sheet name
       // to generate an email subject. if you do not want the additional 
       // text in the email title you can leave this section blank -- use ''
@@ -84,17 +102,19 @@ function procParams() {
       sheetInfo: {
         // if you wamt the sheet to start at a different column, enter
         // your desired column letter below.
+        // @todo these could possibly be extracted from the spreadsheet 
+        //       > using the 'lastColumnLetter' function (need to find)
         firstCol: 'A',
         lastCol: '',
         lastRow: ''
       },
       // add the indices for any timestamps that need to be shortened
       timestampsArray: []
-    },
-    // add helper code to executor.helper below
-    helper: undefined
+    }
   };
 
+  // add helper code to executor.helper below
+  // helper will be available in the procParams object
   executor.helper = () => {
     // helper is specific to each script.
     var hparams = {};
@@ -117,6 +137,7 @@ function procParams() {
   executor.data.recipient = function (answersArray) {
     var tmpRecipient;
 
+    // @todo add a reasonable example, otherwise remove this. 
 
     return tmpRecipient;
   };
@@ -130,10 +151,12 @@ function sendEmail(debug) {
   // create the helper object
   var parameters = procParams();
 
+  // extract helper code and info from procParams (var parameters)
   var helper = parameters.helper;
   var data = parameters.data;
   var id =  data.sheetId;
 
+  //  open the sheet for parsing
   var sheet = SpreadsheetApp.openById(id);
 
   // sheetInfo = { firstCol: ..., lastCol: ... }
@@ -150,9 +173,11 @@ function sendEmail(debug) {
   // replace the '1' in 'sheetInfo.lastCol with the number of the row 
   // containing the last question. NOTE the modifications above
   // have not yet been tested (as of 2/16/2021)
+  // @todo test that changing first question / lastCol + 1 will work properly
   sheetInfo.questionString = 'A1:' + sheetInfo.lastCol + '1';
 
   // get the values for question and latest response ranges
+  // @todo could this be done in a better way? (prolly)
   sheetInfo.questions = sheet.getRange(sheetInfo.questionString).getValues()[0];
   sheetInfo.submissionData = sheet.getRange(sheetInfo.rangeString).getValues()[0];
 
@@ -170,13 +195,16 @@ function sendEmail(debug) {
   }
 
   // create the submission info table and styles for html emails
+  // table rows will be pushed to the dataTable column in the loop below
   var dataTable = [];
   var tdstyle = 'style="padding:7px;"';
 
+  // loop through the submissionData to create a table of questions and answers
   for (var i in sheetInfo.submissionData) {
     var answer = sheetInfo.submissionData[i];
     var question = sheetInfo.questions[i];
 
+    // add the generated row to the dataTable array
     dataTable.push(
       '<tr><td align="right" ' + tdstyle + '><b>' + question + '</b>' +
       '</td><td align="left" ' + tdstyle + '>' + answer + '</td></tr>'
@@ -195,6 +223,7 @@ function sendEmail(debug) {
   var subject = sheetName + data.subjectFilter;
 
   // add a company logo if desired. otherwise, comment out the two lines below
+  // @todo logo can probably be added to procParams - logo = procParams.logo || '';
   var logo = undefined;
   logo = '<img src="' + logo + '" width="120px" height="80px">';
 
