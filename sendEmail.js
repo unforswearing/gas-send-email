@@ -25,7 +25,11 @@
   @todo add these as constants above 'const admin'
         > they can be used to extract the sheet id
         > and form name for emails
+
+  /** @type {string} * /
   form: <form url>
+
+  /** @type * /
   responses: <responses sheet url>
 
    ::: Complete this TO DO list when adding to new projects ::::
@@ -51,6 +55,7 @@ const formUrl = ''
 const responsesUrl = ''
 */
 
+/** @type {string} */
 const admin = undefined
 
 // run 'debugRunner()' when testing
