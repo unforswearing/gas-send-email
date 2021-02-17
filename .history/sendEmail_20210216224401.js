@@ -99,25 +99,19 @@ function procParams() {
     // helper is specific to each script.
     var hparams = {};
     /* add helper vars and functions here
-       
-    @todo Test this example
-    example:
-      // only send an email to addresses matching company.com
-      hparams.filterAddresses = (addressArray) => {
-        return addressArray.filter((item) => {
-          if (item.match(/@company.com/i)) return item;
-        })
-      }
+       example:
+       hparams.filterAddresses = () => {
+
+    }
     */
     return hparams;
   };
 
-  // @todo This section needs to be explained better
   // use this function to add additional recipients to the email notification.
   executor.data.recipient = function (answersArray) {
     var tmpRecipient;
 
-
+    // do stuff with answersArray, or delete this function
     return tmpRecipient;
   };
 

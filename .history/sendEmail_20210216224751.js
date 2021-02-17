@@ -100,7 +100,6 @@ function procParams() {
     var hparams = {};
     /* add helper vars and functions here
        
-    @todo Test this example
     example:
       // only send an email to addresses matching company.com
       hparams.filterAddresses = (addressArray) => {

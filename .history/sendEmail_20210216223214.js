@@ -68,9 +68,6 @@ function procParams() {
       // > executor.data.recipient function below
       formName: undefined,
       recipient: undefined,
-      // leave emailFooter blank if it is not needed
-      emailFooter: '',
-      // NOTE sheetID is required for this script to work properly
       sheetId: '',
       // used to extract the form name from the sheet name.
       // > the 'responses' default is typical for most forms
@@ -79,11 +76,9 @@ function procParams() {
       // the text in the subjectFilter will be added to the sheet name
       // to generate an email subject. if you do not want the additional 
       // text in the email title you can leave this section blank -- use ''
-      // NOTE the modifications above have not yet been tested (as of 2/16/2021)
       subjectFilter: ' Form Submission',
       sheetInfo: {
-        // if you wamt the sheet to start at a different column, enter
-        // your desired column letter below.
+        // 
         firstCol: 'A',
         lastCol: '',
         lastRow: ''
@@ -98,26 +93,17 @@ function procParams() {
   executor.helper = () => {
     // helper is specific to each script.
     var hparams = {};
-    /* add helper vars and functions here
-       
-    @todo Test this example
-    example:
-      // only send an email to addresses matching company.com
-      hparams.filterAddresses = (addressArray) => {
-        return addressArray.filter((item) => {
-          if (item.match(/@company.com/i)) return item;
-        })
-      }
-    */
+
+    //  add helper vars and functions here
+    // hparams['helperName'] = function () { /**/ };
     return hparams;
   };
 
-  // @todo This section needs to be explained better
   // use this function to add additional recipients to the email notification.
   executor.data.recipient = function (answersArray) {
     var tmpRecipient;
 
-
+    // do stuff with answersArray, or delete this function
     return tmpRecipient;
   };
 
@@ -145,18 +131,13 @@ function sendEmail(debug) {
     ':' + sheetInfo.lastCol + sheetInfo.lastRow;
 
   // use the response range to get the questions from row 1
-  // if your questions are in a different row or column
-  // change 'A1' to the location of the cell containing the first question
-  // replace the '1' in 'sheetInfo.lastCol with the number of the row 
-  // containing the last question. NOTE the modifications above
-  // have not yet been tested (as of 2/16/2021)
   sheetInfo.questionString = 'A1:' + sheetInfo.lastCol + '1';
 
   // get the values for question and latest response ranges
   sheetInfo.questions = sheet.getRange(sheetInfo.questionString).getValues()[0];
   sheetInfo.submissionData = sheet.getRange(sheetInfo.rangeString).getValues()[0];
 
-  // only shorten timestamps if the timestamps array has a value
+  // shorten timestamps
   if (data.timestampsArray.join('')) {
     for (var n in data.timestampsArray) {
       // tsi === time stamp index
@@ -194,12 +175,12 @@ function sendEmail(debug) {
   var sheetName = sheet.getName().replace(data.sheetNameFilter, '');
   var subject = sheetName + data.subjectFilter;
 
-  // add a company logo if desired. otherwise, comment out the two lines below
+  // get the company logo image from somewhere on the internet
   var logo = undefined;
   logo = '<img src="' + logo + '" width="120px" height="80px">';
 
   // create the email body
-  var emailFooter = procParams.emailFooter;
+  var emailFooter = undefined;
 
   var body = logo + '<br><br>' +
     'Hello,<br><br>' + sheetName + ' form was submitted on ' + sheetInfo.submissionData[0] +

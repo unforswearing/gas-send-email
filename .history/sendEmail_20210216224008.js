@@ -68,9 +68,8 @@ function procParams() {
       // > executor.data.recipient function below
       formName: undefined,
       recipient: undefined,
-      // leave emailFooter blank if it is not needed
-      emailFooter: '',
-      // NOTE sheetID is required for this script to work properly
+      
+      emailFooter: undefined,
       sheetId: '',
       // used to extract the form name from the sheet name.
       // > the 'responses' default is typical for most forms
@@ -98,26 +97,17 @@ function procParams() {
   executor.helper = () => {
     // helper is specific to each script.
     var hparams = {};
-    /* add helper vars and functions here
-       
-    @todo Test this example
-    example:
-      // only send an email to addresses matching company.com
-      hparams.filterAddresses = (addressArray) => {
-        return addressArray.filter((item) => {
-          if (item.match(/@company.com/i)) return item;
-        })
-      }
-    */
+
+    //  add helper vars and functions here
+    // hparams['helperName'] = function () { /**/ };
     return hparams;
   };
 
-  // @todo This section needs to be explained better
   // use this function to add additional recipients to the email notification.
   executor.data.recipient = function (answersArray) {
     var tmpRecipient;
 
-
+    // do stuff with answersArray, or delete this function
     return tmpRecipient;
   };
 
@@ -199,7 +189,7 @@ function sendEmail(debug) {
   logo = '<img src="' + logo + '" width="120px" height="80px">';
 
   // create the email body
-  var emailFooter = procParams.emailFooter;
+  var emailFooter = undefined;
 
   var body = logo + '<br><br>' +
     'Hello,<br><br>' + sheetName + ' form was submitted on ' + sheetInfo.submissionData[0] +
