@@ -24,13 +24,10 @@
 
    TO DO
    - [] add links to the live form and responses sheet in the "form" 
-        and "responses" keys above.
-   - [] add the admin email address (possibly yours) to the 'admin' 
-        const variable below. the admin will receive all messages
-        from this script.
+        and "responses" 
    - [] complete the 'procParams' object below
-        including any 'false' or 'undefined' items, 'helper' items, and
-        'recipient', if needed 
+        including any 'false' items, 'helper' items, and
+        'recipient', if needed
    - [] submit a test response and run the
         debugRunner function to test the script.
    - [] add an 'On Form Submit' trigger to run the sendEmail function
@@ -38,11 +35,10 @@
 
 */
 
-const admin = undefined
-
 // run 'debugRunner()' when testing
 function debugRunner() {
   debug = true;
+  admin = undefined;
 
   try {
     sendEmail(debug);
@@ -59,11 +55,11 @@ function debugRunner() {
 // processing parameters specific to the needs of this form
 // edit this function to update required 'data' parameters and
 // > add any helper scripts
-function procParams() {
+var procParams = function () {
   var executor = {
     data: {
       // admin will receive error notifications
-      admin: admin,
+      admin: undefined,
       // add any recipient names or code to the
       // > executor.data.recipient function below
       formName: undefined,
@@ -87,12 +83,13 @@ function procParams() {
     helper: undefined
   };
 
-  executor.helper = () => {
+  executor.helper = function () {
     // helper is specific to each script.
     var hparams = {};
 
     //  add helper vars and functions here
     // hparams['helperName'] = function () { /**/ };
+
     return hparams;
   };
 
@@ -101,11 +98,12 @@ function procParams() {
     var tmpRecipient;
 
     // do stuff with answersArray, or delete this function
+
     return tmpRecipient;
   };
 
   return executor;
-}
+};
 
 // main runner function. on form submit, execute sendEmail, end script.
 // sendEmail(true) to send all notifications to 'admin' for testing

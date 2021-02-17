@@ -59,7 +59,7 @@ function debugRunner() {
 // processing parameters specific to the needs of this form
 // edit this function to update required 'data' parameters and
 // > add any helper scripts
-function procParams() {
+var procParams = ()  {
   var executor = {
     data: {
       // admin will receive error notifications
@@ -93,6 +93,7 @@ function procParams() {
 
     //  add helper vars and functions here
     // hparams['helperName'] = function () { /**/ };
+
     return hparams;
   };
 
@@ -101,11 +102,12 @@ function procParams() {
     var tmpRecipient;
 
     // do stuff with answersArray, or delete this function
+
     return tmpRecipient;
   };
 
   return executor;
-}
+};
 
 // main runner function. on form submit, execute sendEmail, end script.
 // sendEmail(true) to send all notifications to 'admin' for testing
