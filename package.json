@@ -1,0 +1,34 @@
+{
+  "name": "google-apps-script-send-email",
+  "version": "1.0.0",
+  "description": "A quick and easy way to send emails to additional recipients for Google Form submissions",
+  "main": "sendEmail.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unforswearing/google-apps-script-send-email.git"
+  },
+  "keywords": [
+    "google",
+    "apps",
+    "script",
+    "google",
+    "forms",
+    "google",
+    "sheets",
+    "email",
+    "business",
+    "automation"
+  ],
+  "author": "unforswearing",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/unforswearing/google-apps-script-send-email/issues"
+  },
+  "homepage": "https://github.com/unforswearing/google-apps-script-send-email#readme",
+  "funding": {
+    "type": "individual",
+    "url": "https://www.unforswearing.com/#/"
+  }
+}

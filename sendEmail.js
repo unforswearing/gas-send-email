@@ -1,66 +1,11 @@
-/*
-  Repository: https://github.com/unforswearing/gas-send-email
-
-  @todo revise these instructions and add them to the github readme
-  A simple script to collect form responses and send email notifications
-  with the option for additional processing, if needed.
-
-  @todo this should work, but needs to be tested again
-  Note: Column A is the default "Timestamp" column in the responses sheet. You can work around this by changing any references to "answerArray[0]" to point to which ever column contains the timestamp.
-
-  After completing the SCRIPT TO DO list below this script should operate succesfully,
-  with no additional modification to the 'sendEmail' function.
-
-  ------------------
-  Script Information
-  ------------------
-
-  @todo clarify explanation
-  Send Email Script: Send form responses to additional addresses
-    - Google forms currently limit the submission receipts
-      to the user who submitted the form.
-    - This script allows responses to be sent to other addresses
-      for various purposes.
-
-  @todo add these as constants above 'const admin'
-        > they can be used to extract the sheet id
-        > and form name for emails
-
-  /** @type {string} * /
-  form: <form url>
-
-  /** @type * /
-  responses: <responses sheet url>
-
-   ::: Complete this TO DO list when adding to new projects ::::
-   @todo improve, clarify, verify these steps
-
-   SCRIPT TO DO
-   - [] add links to the live form and responses sheet in the "form" 
-        and "responses" keys above.
-   - [] add the admin email address (possibly yours) to the 'admin' 
-        const variable below. the admin will receive all messages
-        from this script.
-   - [] complete the 'procParams' object below
-        including any 'false' or 'undefined' items, 'helper' items, and
-        'recipient', if needed 
-   - [] submit a test response and run the
-        debugRunner function to test the script.
-   - [] add an 'On Form Submit' trigger to run the sendEmail function
-        for each form submission.
-*/
-
-/*
-const formUrl = ''
-const responsesUrl = ''
-*/
+// Repository: https://github.com/unforswearing/gas-send-email
 
 // run 'debugRunner()' when testing
-/** @returns {void} */
-function debugRunner() {
-  /** @type {string} */
-  const admin = undefined;
-
+/**
+ * @argument {string} admin
+ * @returns {void}
+ * */
+function debugRunner(admin) {
   /** @type {Boolean} */
   const debug = true;
 
