@@ -55,20 +55,19 @@ const formUrl = ''
 const responsesUrl = ''
 */
 
-/** @type {string} */
-const admin = undefined
-
 // run 'debugRunner()' when testing
 function debugRunner() {
-  debug = true;
+  /** @type {string} */
+  const admin = undefined;
+
+  /** @type {Boolean} */
+  const debug = true;
 
   try {
     sendEmail(debug);
   } catch (e) {
-    var emsg = 'Script ran into an error!\n\n' + e;
-    MailApp.sendEmail(
-      admin, emsg.replace('\n\n' + e), emsg
-    );
+    var emsg = "Script ran into an error!\n\n" + e;
+    MailApp.sendEmail(admin, emsg.replace("\n\n" + e), emsg);
 
     throw e;
   }
@@ -77,8 +76,24 @@ function debugRunner() {
 // processing parameters specific to the needs of this form
 // edit this function to update required 'data' parameters and
 // > add any helper scripts
-function procParams() {
-  var executor = {
+function procParams(recipient, mailFooter) {
+  const activeSpreadsheet = SpreadsheetApp.getActiveSheet()
+  const sheetName = activeSpreadsheet.getName()
+
+  const getLastColumnLetter = function getLastColumnLetter() {
+    var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+    var alphaLen = alphabet.length;
+    var col = spreadsheet.getLastColumn();
+
+    if (col <= alphaLen) return alphabet.splice(col - 1, 1).toString();
+
+    var firstLetter = alphabet[Math.floor(col / alphaLen) - 1];
+    return firstLetter + alphabet.splice(col % alphaLen, 1).toString();
+  };
+
+
+  /** @type {object} */
+  let executor = {
     data: {
       // admin will receive error notifications
       admin: admin,
@@ -86,17 +101,17 @@ function procParams() {
       // > executor.data.recipient function below
       // NOTE formName and sheetId will be extracted from 
       // const formName and const sheet
-      formName: undefined,
+      formName: sheetName.replace(' (Responses'),
       recipient: undefined,
       // leave emailFooter blank if it is not needed
-      emailFooter: '',
+      emailFooter: mailFooter,
       // NOTE sheetID is required for this script to work properly
       // NOTE formName and sheetId will be extracted from 
       // const formName and const sheet
-      sheetId: '',
+      sheetId:activeSpreadsheet.getSheetId() ,
       // used to extract the form name from the sheet name.
       // > the 'responses' default is typical for most forms
-      sheetNameFilter: ' (Responses)',
+      sheetNameFilter: ` (Responses)`,
       // used to create the email subject from the sheet name.
       // @todo verify the steps to change the sheetNameFilter work properly
       // the text in the subjectFilter will be added to the sheet name
@@ -107,46 +122,14 @@ function procParams() {
       sheetInfo: {
         // if you wamt the sheet to start at a different column, enter
         // your desired column letter below.
-        // @todo these could possibly be extracted from the spreadsheet 
-        //       > using the 'lastColumnLetter' function (need to find)
         firstCol: 'A',
-        lastCol: '',
-        lastRow: ''
+        lastCol: getLastColumnLetter(),
+        lastRow: activeSpreadsheet.getLastRow()
       },
-      // add the indices for any timestamps that need to be shortened
-      timestampsArray: []
     }
   };
 
-  // add helper code to executor.helper below
-  // helper will be available in the procParams object
-  executor.helper = () => {
-    // helper is specific to each script.
-    var hparams = {};
-    /* add helper vars and functions here
-       
-    @todo Test this example
-    example:
-      // only send an email to addresses matching company.com
-      hparams.filterAddresses = (addressArray) => {
-        return addressArray.filter((item) => {
-          if (item.match(/@company.com/i)) return item;
-        })
-      }
-    */
-    return hparams;
-  };
-
-  // @todo This section needs to be explained better
-  // use this function to add additional recipients to the email notification.
-  executor.data.recipient = function (answersArray) {
-    var tmpRecipient;
-
-    // @todo add a reasonable example, otherwise remove this. 
-
-    return tmpRecipient;
-  };
-
+  executor.data.recipient = recipient
   return executor;
 }
 
@@ -157,7 +140,9 @@ function sendEmail(debug) {
   var parameters = procParams();
 
   // extract helper code and info from procParams (var parameters)
-  var helper = parameters.helper;
+  // assumption: parameters.helper contains an object of helper vars / funcs
+  // var helper = parameters.helper;
+
   var data = parameters.data;
   var id =  data.sheetId;
 
@@ -166,20 +151,17 @@ function sendEmail(debug) {
 
   // sheetInfo = { firstCol: ..., lastCol: ... }
   var sheetInfo = data.sheetInfo;
-  sheetInfo.lastRow = sheet.getLastRow();
 
   // Get the latest response range as text
-  sheetInfo.rangeString = sheetInfo.firstCol + sheetInfo.lastRow +
-    ':' + sheetInfo.lastCol + sheetInfo.lastRow;
+  sheetInfo.rangeString = 
+    `${sheetInfo.firstCol}${sheetInfo.lastRow}:${sheetInfo.lastCol}${sheetInfo.lastRow}`
 
   // use the response range to get the questions from row 1
   // if your questions are in a different row or column
   // change 'A1' to the location of the cell containing the first question
   // replace the '1' in 'sheetInfo.lastCol with the number of the row 
-  // containing the last question. NOTE the modifications above
-  // have not yet been tested (as of 2/16/2021)
-  // @todo test that changing first question / lastCol + 1 will work properly
-  sheetInfo.questionString = 'A1:' + sheetInfo.lastCol + '1';
+  // containing the last question. 
+  sheetInfo.questionString = `A1:${sheetInfo.lastCol + 1}`;
 
   // get the values for question and latest response ranges
   // @todo could this be done in a better way? (prolly)
@@ -211,14 +193,13 @@ function sendEmail(debug) {
 
     // add the generated row to the dataTable array
     dataTable.push(
-      '<tr><td align="right" ' + tdstyle + '><b>' + question + '</b>' +
-      '</td><td align="left" ' + tdstyle + '>' + answer + '</td></tr>'
+      `<tr><td align="right" ${tdstyle}><b>${question}</b></td><td align="left"  ${tdstyle}>${answer}</td></tr>`
     );
   }
 
   // add styles for full table and nest the dataTable rows in table tags
   var tablestyle = 'style="width:80%;padding:7px;"';
-  dataTable = '<table ' + tablestyle + '>' + dataTable.join('') + '</tables>';
+  dataTable = `<table ${tablestyle}>${dataTable.join('')}</tables>`
 
   // Use admin email address if debug is true, otherwise use the script default
   var recipient = (debug === true) ? data.admin : data.recipient();
@@ -230,15 +211,14 @@ function sendEmail(debug) {
   // add a company logo if desired. otherwise, comment out the two lines below
   // @todo logo can probably be added to procParams - logo = procParams.logo || '';
   var logo = undefined;
-  logo = '<img src="' + logo + '" width="120px" height="80px">';
+  logo = `<img src="${logo}" width="120px" height="80px">`;
 
   // create the email body
   var emailFooter = procParams.emailFooter;
 
-  var body = logo + '<br><br>' +
-    'Hello,<br><br>' + sheetName + ' form was submitted on ' + sheetInfo.submissionData[0] +
-    '. Please find the submitted information below.<hr><br>' + dataTable + '<br><br><br><br>' +
-    emailFooter;
+  var body = logo + `<br><br>
+    'Hello,<br><br>'${sheetName} form was submitted on ${sheetInfo.submissionData[0]}. 
+    Please find the submitted information below.<hr><br>${dataTable}<br><br><br><br>${emailFooter}`;
 
   // send email to 'recipient', admin if debugging
   MailApp.sendEmail(recipient, subject, body, { htmlBody: body, noReply: true });
