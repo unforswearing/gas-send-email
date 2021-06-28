@@ -1,5 +1,11 @@
 A simple send email function for [Google Apps Script](https://developers.google.com/apps-script/reference/) projects.
 
+Install via `npm`:
+
+```
+npm install google-apps-script-send-email
+```
+
 This script performs the following actions
 
 - Collects the latest form response from the responses spreadsheet
