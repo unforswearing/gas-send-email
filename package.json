@@ -1,10 +1,12 @@
 {
   "name": "google-apps-script-send-email",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A quick and easy way to send emails to additional recipients for Google Form submissions",
   "main": "sendEmail.js",
-  "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "jsdoc": "^3.6.7",
+    "jsdoc-to-markdown": "^7.0.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/unforswearing/google-apps-script-send-email.git"
@@ -21,6 +23,11 @@
     "business",
     "automation"
   ],
+  "scripts": {
+    "html-docs": "jsdoc sendEmail.js -c .jsdoc.json -d docs/html",
+    "md-docs": "node_modules/jsdoc-to-markdown/bin/cli.js sendEmail.js > docs/README.md",
+    "preview-html-docs": "/usr/local/bin/serve"
+  },
   "author": "unforswearing",
   "license": "MIT",
   "bugs": {

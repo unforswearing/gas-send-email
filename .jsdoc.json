@@ -1,0 +1,12 @@
+{
+  "tags": {
+    "allowUnknownTags": true,
+    "dictionaries": ["jsdoc", "closure"]
+  },
+  "plugins": ["plugins/markdown"],
+  "source": {
+    "include": ["."],
+    "includePattern": ".(jsx|js|ts|tsx)$"
+  },
+  "sourceType": "module"
+}
