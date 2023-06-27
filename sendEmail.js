@@ -106,7 +106,6 @@ let procParams = {
  * edit this function to update required 'data' parameters and
  * add any helper scripts 
  * @function sendMail
- * @member procParams
  * @argument {boolean} debug specify whether the script should send errors to `admin`
  * @returns {void} 
  * */
