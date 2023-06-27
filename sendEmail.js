@@ -40,16 +40,8 @@ const debugRunner = (admin) => {
     throw e;
   }
 };
-
-/** 
- * processing parameters specific to the needs of this form
- * edit this function to update required 'data' parameters and
- * add any helper scripts 
- * @function procParams
- * @argument {string} recipient the email address of the recipient 
- * @argument {string} mailFooter 
- * the html string to be used as a footer in the email message
-* @property {Object[]} executor
+/**
+* @object executor
 * `executor` is the return value for `procParams`
 * the parameters in the `executor` object will default to the
 * imported config file, calculating information from the active
@@ -80,9 +72,19 @@ const debugRunner = (admin) => {
 * @param {{firstCol: string, lastCol: string, lastRow: number}} executor.data.sheetInfo
 * The first column is set to 'A' by default. To use a different first column
 * modify the `firstCol` parameter to another column in your sheet. 
+* */
+
+/** 
+ * processing parameters specific to the needs of this form
+ * edit this function to update required 'data' parameters and
+ * add any helper scripts 
+ * @function procParams
+ * @argument {string} recipient the email address of the recipient 
+ * @argument {string} mailFooter 
+ * the html string to be used as a footer in the email message
  * @return {object} The return value is the `executor` object 
  * */
-const procParams = (recipient, mailFooter) => {
+const procParams = (recipient, mailFooter, config) => {
   let executor = {
     data: {
       admin: config.admin,
