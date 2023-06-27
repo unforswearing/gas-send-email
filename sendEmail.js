@@ -16,8 +16,8 @@ import config from "./config";
 //  * @argument {string} admin email address for sending error messages
 //  * @returns {void} 
 //  * */
+/** @ignore */
 const debugRunner = (admin) => {
-  /** @ignore */
   const debug = true;
 
   try {
@@ -53,23 +53,26 @@ const debugRunner = (admin) => {
  * ```
  * */
 const procParams = (recipient, mailFooter) => {
-  /**
-   * The active spreadsheet object, containing the form responses
-   * @constant {object} activeSpreadsheet 
-   */
+  // /**
+  //  * The active spreadsheet object, containing the form responses
+  //  * @constant {object} activeSpreadsheet 
+  //  * @memberof procParams
+  //  */
   const activeSpreadsheet = SpreadsheetApp.getActiveSheet();
-  /** 
-   * The name of the active sheet as a string
-   * @constant {string} sheetName 
-   * */
+  // /** 
+  //  * The name of the active sheet as a string
+  //  * @constant {string} sheetName 
+  //  * @memberof procParams
+  //  * */
   const sheetName = activeSpreadsheet.getName();
 
-  /** 
-   * A function to get the last used column in the sheet of form responses
-   * @function getLastColumnLetter
-   * @argument {void}
-   * @returns {string}
-   * */
+  // /** 
+  //  * A function to get the last used column in the sheet of form responses
+  //  * @function getLastColumnLetter
+  //  * @memberof procParams
+  //  * @argument {void}
+  //  * @returns {string}
+  //  * */
   const getLastColumnLetter = function getLastColumnLetter() {
     var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
     var alphaLen = alphabet.length;
@@ -82,10 +85,11 @@ const procParams = (recipient, mailFooter) => {
   };
 
   // using config.js
-  /** 
+  /**
    * `executor` is the return value for `procParams`
    * @namespace executor 
    * @var {object} executor
+   * @memberof procParams
    * @requires ./config.js
    * */
   let executor = {
@@ -177,25 +181,25 @@ const procParams = (recipient, mailFooter) => {
  * */
 function sendEmail(debug) {
   // create the helper object
-  /** @type {object} */
+  // /** @type {object} */
   var parameters = procParams();
 
   // extract helper code and info from procParams (var parameters)
   // assumption: parameters.helper contains an object of helper vars / funcs
   // var helper = parameters.helper;
 
-  /** @type {object} */
+  // /** @type {object} */
   var data = parameters.data;
 
-  /** @type {string} */
+  // /** @type {string} */
   var id = data.sheetId;
 
   //  open the sheet for parsing
-  /** @type {object} */
+  // /** @type {object} */
   var sheet = SpreadsheetApp.openById(id);
 
   // sheetInfo = { firstCol: ..., lastCol: ... }
-  /** @type {object} */
+  // /** @type {object} */
   var sheetInfo = data.sheetInfo;
 
   // Get the latest response range as text
@@ -210,10 +214,10 @@ function sendEmail(debug) {
 
   // get the values for question and latest response ranges
   // @todo could this be done in a better way? (prolly)
-  /** @type {Array} */
+  // /** @type {Array} */
   sheetInfo.questions = sheet.getRange(sheetInfo.questionString).getValues()[0];
 
-  /** @type {Array} */
+  // /** @type {Array} */
   sheetInfo.submissionData = sheet
     .getRange(sheetInfo.rangeString)
     .getValues()[0];
