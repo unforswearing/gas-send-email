@@ -198,4 +198,4 @@ function sendEmail(debug) {
   });
 }
 
-export default sendEmail;
+// export default sendEmail;
