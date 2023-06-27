@@ -1,11 +1,11 @@
 /**
  * @author unforswearing
  * {@link https://github.com/unforswearing/gas-send-email|Repository}
- * @module config
+ * @module emailConfig
  * */
 
 /**
- * @name configObj
+ * @constant {Object} config
 * @property {string} admin admin will receive error notifications
 * @property {string} formName 
 * @property {string} recipient 
