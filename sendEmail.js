@@ -47,12 +47,25 @@ const debugRunner = (admin) => {
  * ```
  * */
 const procParams = (recipient, mailFooter) => {
-  /** @ignore */
+  /**
+   * The active spreadsheet object, containing the form responses
+   * @constant {object} activeSpreadsheet
+   * @inner 
+   */
   const activeSpreadsheet = SpreadsheetApp.getActiveSheet();
-  /** @ignore */
+  /** 
+   * The name of the active sheet as a string
+   * @constant {string} sheetName 
+   * @inner
+   * */
   const sheetName = activeSpreadsheet.getName();
 
-  /** @ignore */
+  /** 
+   * A function to get the last used column in the sheet of form responses
+   * @function getLastColumnLetter
+   * @argument {void}
+   * @returns {string}
+   * */
   const getLastColumnLetter = function getLastColumnLetter() {
     var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
     var alphaLen = alphabet.length;
