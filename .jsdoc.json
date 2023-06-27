@@ -5,10 +5,10 @@
   },
   "plugins": ["plugins/markdown"],
   "source": {
-    "include": ["sendEmail.js", "config.js", "debug.js"]
+    "include": ["config.js", "sendEmail.js", "debug.js"]
   },
   "templates": {
-    "monospaceLinks": true
+
   },
   "opts": {
     "template": "node_modules/clean-jsdoc-theme/"

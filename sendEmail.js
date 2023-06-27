@@ -52,7 +52,7 @@ const getLastColumnLetter = function getLastColumnLetter() {
  * imported config file, calculating information from the active
  * sheet only where necessary. 
  * 
- * Additional information about `const config`: @{link emailConfig}
+ * Additional information about `const config`: {@link emailConfig}
  * 
  * @property {string} data.admin admin will receive error notifications
  * @property {string} data.formName 
