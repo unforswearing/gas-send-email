@@ -5,7 +5,7 @@
   "main": "sendEmail.js",
   "devDependencies": {
     "jsdoc": "^3.6.7",
-    "jsdoc-to-markdown": "^7.0.1"
+    "jsdoc-to-markdown": "^7.1.1"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,8 @@
     "sheets",
     "email",
     "business",
-    "automation"
+    "automation",
+    "unforswearing"
   ],
   "scripts": {
     "html-docs": "jsdoc sendEmail.js -c .jsdoc.json -d docs/html",
