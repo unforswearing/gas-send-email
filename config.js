@@ -5,6 +5,7 @@
  * */
 
 /**
+ * @name configObj
 * @property {string} admin admin will receive error notifications
 * @property {string} formName 
 * @property {string} recipient 
