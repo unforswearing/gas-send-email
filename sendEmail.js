@@ -5,8 +5,28 @@
 // Repository: https://github.com/unforswearing/gas-send-email
 import config from "./config";
 
+/**
+ * Get the spreadsheet object for the active spreadsheet.
+ * Uses the Apps Script class `SpreadsheetApp` 
+ * @constant {Object} 
+ * */
 const activeSpreadsheet = SpreadsheetApp.getActiveSheet();
+
+/**
+ * Use the `activeSpreadsheet` object to retrieve the name
+ * of the current sheet via the `getName()` method.  
+ * @constant {string} 
+ * */
 const sheetName = activeSpreadsheet.getName();
+
+/**
+ * A method to retrieve the letter of the last used column
+ * in the spreadsheet. 
+ * @function getLastColumnletter 
+ * @example 
+ * let lastCol = getLastColumnLetter()
+ * @return {string} The last column letter as a string.
+*/
 const getLastColumnLetter = function getLastColumnLetter() {
   var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
   var alphaLen = alphabet.length;
@@ -37,7 +57,6 @@ const debugRunner = (admin) => {
  * imported config file, calculating information from the active
  * sheet only where necessary. 
  * @typedef procParams
-* @property {Object} procParams.data
 * @property {string} procParams.data.admin admin will receive error notifications
 * @property {string} procParams.data.formName 
 * @property {string} procParams.data.recipient 
@@ -97,14 +116,14 @@ let procParams = {
  * */
 function sendEmail(debug) {
   // create the helper object
-  /** @type {object} */
-  var parameters = procParams();
+  /** @type {procParams} */
+  var parameters = procParams;
 
   // extract helper code and info from procParams (var parameters)
   // assumption: parameters.helper contains an object of helper vars / funcs
   // var helper = parameters.helper;
 
-  /** @type {object} */
+  /** @type {procParams.data} */
   var data = parameters.data;
 
   /** @type {string} */
