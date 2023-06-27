@@ -50,10 +50,8 @@ const getLastColumnLetter = function getLastColumnLetter() {
 /**
  * The parameters in this `procParams` object will default to the
  * imported config file, calculating information from the active
- * sheet only where necessary. 
- * 
- * Additional information about `const config`: {@link emailConfig}
- * 
+ * sheet only where necessary. Additional information about `const config`: {@link emailConfig}
+ * @requires emailConfig.config
  * @property {string} data.admin admin will receive error notifications
  * @property {string} data.formName 
  * @property {string} data.recipient 
