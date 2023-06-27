@@ -16,7 +16,7 @@ const _config = () => config;
 /**
  * @constant {Object} config
 * @property {string} admin admin will receive error notifications
-* @property {string} formName 
+* @property {string} formName the name of the form you are using with this script
 * @property {string} recipient 
 * add any recipient email addresses here. these may be single
 * addresses or an array of quoted addresses. 
