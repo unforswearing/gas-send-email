@@ -49,13 +49,13 @@ const debugRunner = (admin) => {
  * @argument {string} recipient the email address of the recipient 
  * @argument {string} mailFooter 
  * the html string to be used as a footer in the email message
- * @param {Object[]} executor
- * `executor` is the return value for `procParams`
- * the parameters in the `executor` object will default to the
- * imported config file, calculating information from the active
- * sheet only where necessary. 
- * @param {Object} executor.data
- * @param {string} executor.data.admin admin will receive error notifications
+* @property {Object[]} executor
+* `executor` is the return value for `procParams`
+* the parameters in the `executor` object will default to the
+* imported config file, calculating information from the active
+* sheet only where necessary. 
+* @param {Object} executor.data
+* @param {string} executor.data.admin admin will receive error notifications
 * @param {string} executor.data.formName 
 * @param {string} executor.data.recipient 
 * add any recipient email addresses here. these may be single
