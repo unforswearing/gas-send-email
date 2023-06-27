@@ -55,14 +55,12 @@ const debugRunner = (admin) => {
 const procParams = (recipient, mailFooter) => {
   /**
    * The active spreadsheet object, containing the form responses
-   * @constant {object} activeSpreadsheet
-   * @inner 
+   * @constant {object} activeSpreadsheet 
    */
   const activeSpreadsheet = SpreadsheetApp.getActiveSheet();
   /** 
    * The name of the active sheet as a string
    * @constant {string} sheetName 
-   * @inner
    * */
   const sheetName = activeSpreadsheet.getName();
 
@@ -71,7 +69,6 @@ const procParams = (recipient, mailFooter) => {
    * @function getLastColumnLetter
    * @argument {void}
    * @returns {string}
-   * @inner
    * */
   const getLastColumnLetter = function getLastColumnLetter() {
     var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
@@ -89,7 +86,6 @@ const procParams = (recipient, mailFooter) => {
    * `executor` is the return value for `procParams`
    * @var {object} executor
    * @requires ./config.js
-   * @inner
    * */
   let executor = {
     /** @prop {object} data */
