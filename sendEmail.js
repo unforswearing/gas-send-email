@@ -71,7 +71,7 @@ const getLastColumnLetter = function getLastColumnLetter() {
  * @property {{firstCol: string, lastCol: string, lastRow: number}} data.sheetInfo
  * The first column is set to 'A' by default. To use a different first column
  * modify the `firstCol` parameter to another column in your sheet. 
- * for source properties for `procParams{}`
+ * @see emailConfig
  * */
 let procParams = {
   data: {
