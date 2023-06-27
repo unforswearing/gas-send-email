@@ -1,5 +1,4 @@
 /**
- * @module sendEmail
  * @author unforswearing
  */
 
@@ -81,20 +80,7 @@ const debugRunner = (admin) => {
 * @param {{firstCol: string, lastCol: string, lastRow: number}} executor.data.sheetInfo
 * The first column is set to 'A' by default. To use a different first column
 * modify the `firstCol` parameter to another column in your sheet. 
- * @returns {object} 
- * The return value contains data to be used when sending the email message. 
- * ```
- * {
- *   admin, 
- *   formName, 
- *   recipient, 
- *   emailFooter, 
- *   sheetId, 
- *   sheetNameFilter, 
- *   subjectFilter,
- *   sheetInfo {...}
- * }
- * ```
+ * @return {object} The return value is the `executor` object 
  * */
 const procParams = (recipient, mailFooter) => {
   let executor = {
