@@ -58,6 +58,7 @@ const procParams = (recipient, mailFooter) => {
   /** 
    * `getLastColumnLetter()` is used to retrieve the last column available
    * in the current sheet. This will be the last column that contains form data.
+   * @function getLastColumnLetter
    * @example 
    * let lastColumn = getLastColumnLetter()
    * @argument {void}
