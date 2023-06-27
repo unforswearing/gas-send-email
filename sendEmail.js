@@ -5,6 +5,9 @@ import config from "./config";
 /**
  * `debugRunner()` tests the `sendEmail()` function, 
  * catching any errors that arise. 
+ * @example
+ * // Use in a trigger (pseudocode)
+ * ScriptApp.addTrigger(debugRunner)
  * @argument {string} admin
  * @returns {void}
  * */
