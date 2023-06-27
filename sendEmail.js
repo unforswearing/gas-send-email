@@ -8,8 +8,8 @@ import config from "./config";
  * @example
  * // Use in a trigger (pseudocode)
  * ScriptApp.addTrigger(debugRunner)
- * @argument {string} admin
- * @returns {void}
+ * @argument {string} admin email address for sending error messages
+ * @returns {void} 
  * */
 const debugRunner = (admin) => {
   /** @type {Boolean} */
