@@ -48,35 +48,37 @@ const debugRunner = (admin) => {
  * add any helper scripts 
  * @function procParams
  * @argument {string} recipient the email address of the recipient 
- * @argument {string} mailFooter the html string to be used as a footer in the email message
+ * @argument {string} mailFooter 
+ * the html string to be used as a footer in the email message
+ * @param {Object} executor
  * `executor` is the return value for `procParams`
  * the parameters in the `executor` object will default to the
  * imported config file, calculating information from the active
  * sheet only where necessary. 
- * @param {Object} data
- * @param {string} data.admin admin will receive error notifications
-* @param {string} data.formName 
-* @param {string} recipient 
+ * @param {Object} executor.data
+ * @param {string} executor.data.admin admin will receive error notifications
+* @param {string} executor.data.formName 
+* @param {string} executor.data.recipient 
 * add any recipient email addresses here. these may be single
 * addresses or an array of quoted addresses. 
-* @param {string} emailFooter
+* @param {string} executor.data.emailFooter
 * `emailFooter` specifies the html string to be used in the emails
 * that are sent from this script. Leave blank if you do not require
 * an email footer
-* @param {string} sheetId
+* @param {string} executor.data.sheetId
 * Property `sheetID` is required for this script to work properly
 * Properties `formName` and `sheetId` will be extracted from
 * `const formName` and `const sheet`
-* @param {string} sheetNameFilter 
+* @param {string} executor.data.sheetNameFilter 
 * used to extract the form name from the sheet name.
 * the 'responses' default is typical for most forms.
-* @param {string} subjectFilter
+* @param {string} executor.data.subjectFilter
 * `subjectFilter` is used to create the email subject from the sheet name.
 * the text in the subjectFilter will be added to the sheet name
 * to generate an email subject. if you do not want the additional
 * text in the email title you can leave this section blank -- use ''
 * NOTE the modifications above have not yet been tested (as of 2/16/2021)
-* @param {{firstCol: string, lastCol: string, lastRow: number}} sheetInfo
+* @param {{firstCol: string, lastCol: string, lastRow: number}} executor.data.sheetInfo
 * The first column is set to 'A' by default. To use a different first column
 * modify the `firstCol` parameter to another column in your sheet. 
  * @returns {object} 
