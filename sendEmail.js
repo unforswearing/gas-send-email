@@ -53,26 +53,8 @@ const debugRunner = (admin) => {
  * ```
  * */
 const procParams = (recipient, mailFooter) => {
-  // /**
-  //  * The active spreadsheet object, containing the form responses
-  //  * @constant {object} activeSpreadsheet 
-  //  * @memberof procParams
-  //  */
   const activeSpreadsheet = SpreadsheetApp.getActiveSheet();
-  // /** 
-  //  * The name of the active sheet as a string
-  //  * @constant {string} sheetName 
-  //  * @memberof procParams
-  //  * */
   const sheetName = activeSpreadsheet.getName();
-
-  // /** 
-  //  * A function to get the last used column in the sheet of form responses
-  //  * @function getLastColumnLetter
-  //  * @memberof procParams
-  //  * @argument {void}
-  //  * @returns {string}
-  //  * */
   const getLastColumnLetter = function getLastColumnLetter() {
     var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
     var alphaLen = alphabet.length;
@@ -90,8 +72,6 @@ const procParams = (recipient, mailFooter) => {
    * the parameters in the `executor` object will default to the
    * imported config file, calculating information from the active
    * sheet only where necessary. 
-   * @name executor 
-   * @requires ./config.js
    * @param {Object} data
    * @param {string} data.admin admin will receive error notifications
    * @param {string} data.formName 
@@ -118,6 +98,7 @@ const procParams = (recipient, mailFooter) => {
    * @param {{firstCol: string, lastCol: string, lastRow: number}} sheetInfo
    * The first column is set to 'A' by default. To use a different first column
    * modify the `firstCol` parameter to another column in your sheet. 
+   * @inner
    * */
   let executor = {
     data: {
