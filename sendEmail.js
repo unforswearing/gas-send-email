@@ -71,14 +71,14 @@ const getLastColumnLetter = function getLastColumnLetter() {
  * @property {{firstCol: string, lastCol: string, lastRow: number}} data.sheetInfo
  * The first column is set to 'A' by default. To use a different first column
  * modify the `firstCol` parameter to another column in your sheet. 
- * @see {@link ./module-config.html|config.js} for source properties for `procParams{}`
+ * for source properties for `procParams{}`
  * */
 let procParams = {
   data: {
     admin: config.admin,
     formName: config.formName | sheetName.replace(" (Responses"),
     recipient: config.recipient,
-    emailFooter: config.mailFooter,
+    emailFooter: config.emailFooter | "",
     sheetId: config.sheetId | activeSpreadsheet.getSheetId(),
     sheetNameFilter: config.sheetNameFilter | ` (Responses)`,
     subjectFilter: config.subjectFilter | " Form Submission",
