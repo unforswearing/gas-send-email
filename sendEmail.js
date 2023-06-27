@@ -65,6 +65,7 @@ const procParams = (recipient, mailFooter) => {
    * let lastColumn = getLastColumnLetter()
    * @argument {void}
    * @returns {string} The letter of the last column in the sheet
+   * @inner
    * */
   const getLastColumnLetter = function getLastColumnLetter() {
     var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
