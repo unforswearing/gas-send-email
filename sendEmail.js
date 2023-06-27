@@ -25,10 +25,16 @@ const debugRunner = (admin) => {
   }
 };
 
-// processing parameters specific to the needs of this form
-// edit this function to update required 'data' parameters and
-// > add any helper scripts
-/** @returns {object} */
+/** 
+ * processing parameters specific to the needs of this form
+ * edit this function to update required 'data' parameters and
+ * add any helper scripts 
+ * @argument {string} recipient
+ * @desc the email address of the recipient 
+ * @argument {string} mailFooter
+ * @desc the html string to be used as a footer in the email message
+ * @returns {object} 
+ * */
 const procParams = (recipient, mailFooter) => {
   /** @type {object} */
   const activeSpreadsheet = SpreadsheetApp.getActiveSheet();
