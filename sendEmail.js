@@ -32,7 +32,18 @@ const debugRunner = (admin) => {
  * @argument {string} mailFooter the html string to be used as a footer in the email message
  * @returns {object} 
  * The return value contains data to be used when sending the email message. 
- * 
+ * ```
+ * {
+ *   admin, 
+ *   formName, 
+ *   recipient, 
+ *   emailFooter, 
+ *   sheetId, 
+ *   sheetNameFilter, 
+ *   subjectFilter,
+ *   sheetInfo {...}
+ * }
+ * ```
  * */
 const procParams = (recipient, mailFooter) => {
   /** @type {object} */
