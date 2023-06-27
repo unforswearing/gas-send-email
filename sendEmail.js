@@ -45,7 +45,7 @@ const getLastColumnLetter = function getLastColumnLetter() {
 /**
  * The parameters in this `procParams` object will default to the
  * imported config file, calculating information from the active
- * sheet only where necessary. See {@link module-config.html|config.js}
+ * sheet only where necessary. See {@link ./module-config.html|config.js}
  * for usable properties.
 * @property {string} data.admin admin will receive error notifications
 * @property {string} data.formName 
