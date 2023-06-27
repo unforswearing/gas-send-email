@@ -12,6 +12,7 @@ import config from "./config";
  * @returns {void} 
  * */
 const debugRunner = (admin) => {
+  /** @desc indicate debug state using the `debug` const */
   /** @type {Boolean} */
   const debug = true;
 
