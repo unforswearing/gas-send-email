@@ -71,6 +71,7 @@ const procParams = (recipient, mailFooter) => {
    * @function getLastColumnLetter
    * @argument {void}
    * @returns {string}
+   * @inner
    * */
   const getLastColumnLetter = function getLastColumnLetter() {
     var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
