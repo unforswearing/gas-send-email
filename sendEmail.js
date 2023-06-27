@@ -6,16 +6,16 @@
 // Repository: https://github.com/unforswearing/gas-send-email
 import config from "./config";
 
-/**
- * `debugRunner()` tests the `sendEmail()` function, 
- * catching any errors that arise. 
- * @function debugRunner
- * @example
- * // Use in a trigger (pseudocode)
- * ScriptApp.addTrigger(debugRunner)
- * @argument {string} admin email address for sending error messages
- * @returns {void} 
- * */
+// /**
+//  * `debugRunner()` tests the `sendEmail()` function, 
+//  * catching any errors that arise. 
+//  * @function debugRunner
+//  * @example
+//  * // Use in a trigger (pseudocode)
+//  * ScriptApp.addTrigger(debugRunner)
+//  * @argument {string} admin email address for sending error messages
+//  * @returns {void} 
+//  * */
 const debugRunner = (admin) => {
   /** @ignore */
   const debug = true;
@@ -164,9 +164,17 @@ const procParams = (recipient, mailFooter) => {
   return executor;
 };
 
-// main runner function. on form submit, execute sendEmail, end script.
-// sendEmail(true) to send all notifications to 'admin' for testing
-/** @returns {void} */
+/** 
+ * main runner function. on form submit, execute sendEmail, end script.
+ * sendEmail(true) to send all notifications to 'admin' for testing. 
+ * processing parameters specific to the needs of this form
+ * edit this function to update required 'data' parameters and
+ * add any helper scripts 
+ * @function sendEmail
+ * @memberof sendEmail
+ * @argument {boolean} debug specify whether the script should send errors to `admin`
+ * @returns {void} 
+ * */
 function sendEmail(debug) {
   // create the helper object
   /** @type {object} */
