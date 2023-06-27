@@ -59,7 +59,7 @@ const debugRunner = (admin) => {
  * The parameters in this `procParams` object will default to the
  * imported config file, calculating information from the active
  * sheet only where necessary. 
- * @typedef procParams
+ * @name procParams
 * @property {string} procParams.data.admin admin will receive error notifications
 * @property {string} procParams.data.formName 
 * @property {string} procParams.data.recipient 
@@ -87,7 +87,11 @@ const debugRunner = (admin) => {
 * modify the `firstCol` parameter to another column in your sheet. 
 * */
 
-/** @type {procParams} */
+/**
+ * @name procParams 
+ * @type {Object} 
+ * 
+ * */
 let procParams = {
   data: {
     admin: config.admin,
