@@ -36,7 +36,6 @@ const debugRunner = (admin) => {
  * The parameters in this `procParams` object will default to the
  * imported config file, calculating information from the active
  * sheet only where necessary. 
-* @namespace procParams
 * @param {Object} procParams.data
 * @param {string} procParams.data.admin admin will receive error notifications
 * @param {string} procParams.data.formName 
