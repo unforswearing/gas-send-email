@@ -52,6 +52,7 @@ const getLastColumnLetter = function getLastColumnLetter() {
  * The parameters in this `procParams` object will default to the
  * imported config file, calculating information from the active
  * sheet only where necessary. 
+ * @name procParams
  * @requires emailConfig.config
  * @property {string} data.admin admin will receive error notifications
  * @property {string} data.formName 
@@ -105,6 +106,7 @@ let procParams = {
  * edit this function to update required 'data' parameters and
  * add any helper scripts 
  * @function sendMail
+ * @member procParams
  * @argument {boolean} debug specify whether the script should send errors to `admin`
  * @returns {void} 
  * */
