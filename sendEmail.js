@@ -1,5 +1,5 @@
 /**
- * Repository: https://github.com/unforswearing/gas-send-email
+ * {@link https://github.com/unforswearing/gas-send-email|Repository}
  * @author unforswearing
  */
 
