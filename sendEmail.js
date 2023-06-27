@@ -7,7 +7,7 @@
  * 
  * @author unforswearing
  * @module sendEmail
- * @see {@link config}
+ * @see {@link module:emailConfig}
  */
 
 import config from "./config";
