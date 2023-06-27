@@ -11,7 +11,7 @@ import config from "./config";
  * @returns {void} 
  * */
 const debugRunner = (admin) => {
-  /** @constant {Boolean} debug */
+  /** @ignore */
   const debug = true;
 
   try {
@@ -47,25 +47,12 @@ const debugRunner = (admin) => {
  * ```
  * */
 const procParams = (recipient, mailFooter) => {
-  /** @constant {object} activeSpreadsheet */
+  /** @ignore */
   const activeSpreadsheet = SpreadsheetApp.getActiveSheet();
-
-  /** 
-   * @constant {string} sheetName 
-   * @inner
-  */
+  /** @ignore */
   const sheetName = activeSpreadsheet.getName();
 
-  /** 
-   * `getLastColumnLetter()` is used to retrieve the last column available
-   * in the current sheet. This will be the last column that contains form data.
-   * @name getLastColumnLetter
-   * @example 
-   * let lastColumn = getLastColumnLetter()
-   * @argument {void}
-   * @returns {string} The letter of the last column in the sheet
-   * @inner
-   * */
+  /** @ignore */
   const getLastColumnLetter = function getLastColumnLetter() {
     var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
     var alphaLen = alphabet.length;
@@ -80,8 +67,9 @@ const procParams = (recipient, mailFooter) => {
   // using config.js
   /** 
    * `executor` is the return value for `procParams`
-   * @var {object} executor 
-   * @inner
+   * @name executor 
+   * @type {object}
+   * @memberof procParams
    * */
   let executor = {
     /** @prop {object} data */
