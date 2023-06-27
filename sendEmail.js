@@ -60,6 +60,7 @@ const debugRunner = (admin) => {
  * imported config file, calculating information from the active
  * sheet only where necessary. 
  * @name procParams
+ * @requires module:config
 * @property {string} procParams.data.admin admin will receive error notifications
 * @property {string} procParams.data.formName 
 * @property {string} procParams.data.recipient 
@@ -86,12 +87,6 @@ const debugRunner = (admin) => {
 * The first column is set to 'A' by default. To use a different first column
 * modify the `firstCol` parameter to another column in your sheet. 
 * */
-
-/**
- * @name procParams 
- * @type {Object} 
- * @requires module:config
- * */
 let procParams = {
   data: {
     admin: config.admin,
