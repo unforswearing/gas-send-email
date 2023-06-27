@@ -106,16 +106,16 @@ let procParams = {
 };
 
 /** 
- * main runner function. on form submit, execute sendEmail, end script.
+ * main runner function. on form submit, execute sendMail, end script.
  * sendEmail(true) to send all notifications to 'admin' for testing. 
  * processing parameters specific to the needs of this form
  * edit this function to update required 'data' parameters and
  * add any helper scripts 
- * @function sendEmail
+ * @function sendMail
  * @argument {boolean} debug specify whether the script should send errors to `admin`
  * @returns {void} 
  * */
-function sendEmail(debug) {
+function sendMail(debug) {
   /* create the helper object **/
   var parameters = procParams;
 
@@ -211,4 +211,4 @@ function sendEmail(debug) {
   });
 }
 
-export default sendEmail;
+export default sendMail;
