@@ -97,25 +97,25 @@ let procParams = {
  * */
 function sendEmail(debug) {
   // create the helper object
-  // /** @type {object} */
+  /** @type {object} */
   var parameters = procParams();
 
   // extract helper code and info from procParams (var parameters)
   // assumption: parameters.helper contains an object of helper vars / funcs
   // var helper = parameters.helper;
 
-  // /** @type {object} */
+  /** @type {object} */
   var data = parameters.data;
 
-  // /** @type {string} */
+  /** @type {string} */
   var id = data.sheetId;
 
   //  open the sheet for parsing
-  // /** @type {object} */
+  /** @type {object} */
   var sheet = SpreadsheetApp.openById(id);
 
   // sheetInfo = { firstCol: ..., lastCol: ... }
-  // /** @type {object} */
+  /** @type {object} */
   var sheetInfo = data.sheetInfo;
 
   // Get the latest response range as text
@@ -130,10 +130,10 @@ function sendEmail(debug) {
 
   // get the values for question and latest response ranges
   // @todo could this be done in a better way? (prolly)
-  // /** @type {Array} */
+  /** @type {Array} */
   sheetInfo.questions = sheet.getRange(sheetInfo.questionString).getValues()[0];
 
-  // /** @type {Array} */
+  /** @type {Array} */
   sheetInfo.submissionData = sheet
     .getRange(sheetInfo.rangeString)
     .getValues()[0];
