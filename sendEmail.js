@@ -41,7 +41,7 @@ const debugRunner = (admin) => {
   }
 };
 /**
-* @object executor
+* @namespace executor
 * `executor` is the return value for `procParams`
 * the parameters in the `executor` object will default to the
 * imported config file, calculating information from the active
@@ -73,7 +73,24 @@ const debugRunner = (admin) => {
 * The first column is set to 'A' by default. To use a different first column
 * modify the `firstCol` parameter to another column in your sheet. 
 * */
-
+let executor = {
+  data: {
+    admin: config.admin,
+    formName: config.formName | sheetName.replace(" (Responses"),
+    recipient: config.recipient,
+    emailFooter: config.mailFooter,
+    sheetId: config.sheetId | activeSpreadsheet.getSheetId(),
+    sheetNameFilter: config.sheetNameFilter | ` (Responses)`,
+    subjectFilter: config.subjectFilter | " Form Submission",
+    sheetInfo:
+      config.sheetInfo |
+      {
+        firstCol: "A",
+        lastCol: getLastColumnLetter(),
+        lastRow: activeSpreadsheet.getLastRow(),
+      },
+  },
+};
 /** 
  * processing parameters specific to the needs of this form
  * edit this function to update required 'data' parameters and
