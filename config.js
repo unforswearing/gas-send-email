@@ -1,3 +1,5 @@
+/** @module */
+
 /** @type {Object.<string, !string>} */
 const config = {
   admin: "",
