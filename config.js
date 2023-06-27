@@ -4,7 +4,6 @@
  * @module emailConfig
  * */
 
-
 const _config = () => config;
 
 /**
@@ -45,7 +44,5 @@ const config = {
   subjectFilter: "",
   sheetInfo: {},
 };
-
-
 
 export default config;
