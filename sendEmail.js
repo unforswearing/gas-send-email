@@ -90,6 +90,7 @@ const debugRunner = (admin) => {
 /**
  * @name procParams 
  * @type {Object} 
+ * @requires module:config
  * */
 let procParams = {
   data: {
