@@ -68,7 +68,7 @@ const procParams = (recipient, mailFooter) => {
   /** 
    * `executor` is the return value for `procParams`
    * @var {object} executor
-   * @memberof procParams
+   * @inner
    * */
   let executor = {
     /** @prop {object} data */
