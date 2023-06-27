@@ -51,7 +51,7 @@ const getLastColumnLetter = function getLastColumnLetter() {
  * @name procParams
  * @requires module:emailConfig~config
  * @property {string} data.admin admin will receive error notifications
- * @property {string} data.formName 
+ * @property {string} data.formName the name of the form you are using with this script
  * @property {string} data.recipient 
  * add any recipient email addresses here. these may be single
  * addresses or an array of quoted addresses. 
@@ -97,12 +97,11 @@ let procParams = {
 
 /** 
  * The `sendMail()` function is the main runner function. 
- * This function should be added to a Google Apps Script "on form submit", 
- * trigger to execute the execute sendMail function. 
- * sendEmail(true) to send all notifications to 'admin' for testing. 
- * processing parameters specific to the needs of this form
- * edit this function to update required 'data' parameters and
- * add any helper scripts 
+ * This function should be added to a {@link https://developers.google.com/apps-script/guides/triggers/installable#google_apps_triggers|Google Apps Script installable trigger} to execute the execute sendMail function. 
+ * <br /><br />
+ * Passing `true` to this function (eg. `sendEmail(true)`) will send all 
+ * runtime notifications to the email address listed in `procParams.data.admin`.
+ * This is most useful for testing. 
  * @function sendMail
  * @argument {boolean} debug specify whether the script should send errors to `admin`
  * @returns {void} 
