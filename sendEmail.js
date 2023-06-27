@@ -7,6 +7,7 @@
  * 
  * @author unforswearing
  * @module sendEmail
+ * @see [emailConfig]{@link emailConfig.config}
  */
 
 import config from "./config";
@@ -50,7 +51,7 @@ const getLastColumnLetter = function getLastColumnLetter() {
 /**
  * The parameters in this `procParams` object will default to the
  * imported config file, calculating information from the active
- * sheet only where necessary. Additional information about configuration {@link emailConfig|can be found in config}
+ * sheet only where necessary. 
  * @requires emailConfig.config
  * @property {string} data.admin admin will receive error notifications
  * @property {string} data.formName 
