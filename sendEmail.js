@@ -1,5 +1,10 @@
 /**
- * {@link https://github.com/unforswearing/gas-send-email| (Source Repository)}
+* 
+ * Please see the documentation for `const config` below for a description of
+ * required parameters. Please find additional information in the 
+ * {@link https://github.com/unforswearing/gas-send-email| Source Repository}
+ * 
+ * 
  * @author unforswearing
  * @module
  */

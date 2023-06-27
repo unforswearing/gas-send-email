@@ -1,5 +1,12 @@
 /**
- * {@link https://github.com/unforswearing/gas-send-email| (Source Repository)}
+ * **This configuration file must be completed for the `sendMail` function 
+ * to work correctly.**
+ * 
+ * Please see the documentation for `const config` below for a description of
+ * required parameters. Please find additional information in the 
+ * {@link https://github.com/unforswearing/gas-send-email| Source Repository}
+ * 
+ * 
  * @author unforswearing
  * @module emailConfig
  * */
