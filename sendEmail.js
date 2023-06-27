@@ -9,6 +9,7 @@ import config from "./config";
  * Get the spreadsheet object for the active spreadsheet.
  * Uses the Apps Script class `SpreadsheetApp` 
  * @constant {Object} 
+ * @private
  * */
 const activeSpreadsheet = SpreadsheetApp.getActiveSheet();
 
@@ -16,6 +17,7 @@ const activeSpreadsheet = SpreadsheetApp.getActiveSheet();
  * Use the `activeSpreadsheet` object to retrieve the name
  * of the current sheet via the `getName()` method.  
  * @constant {string} 
+ * @private
  * */
 const sheetName = activeSpreadsheet.getName();
 
@@ -26,6 +28,7 @@ const sheetName = activeSpreadsheet.getName();
  * @example 
  * let lastCol = getLastColumnLetter()
  * @return {string} The last column letter as a string.
+ * @private
 */
 const getLastColumnLetter = function getLastColumnLetter() {
   var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
@@ -38,7 +41,7 @@ const getLastColumnLetter = function getLastColumnLetter() {
   return `${firstLetter}${alphabet.splice(col % alphaLen, 1).toString()}`;
 };
 
-/** @ignore */
+/** @private */
 const debugRunner = (admin) => {
   const debug = true;
 
