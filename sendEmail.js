@@ -84,6 +84,7 @@ const procParams = (recipient, mailFooter) => {
    * @inner
    * */
   let executor = {
+    /** @prop {object} data */
     data: {
       // admin will receive error notifications
       /** @prop {string} admin */
