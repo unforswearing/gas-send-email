@@ -1,7 +1,6 @@
 // Repository: https://github.com/unforswearing/gas-send-email
 import config from "./config";
 
-// run 'debugRunner()' when testing
 /**
  * `debugRunner()` tests the `sendEmail()` function, 
  * catching any errors that arise. 
