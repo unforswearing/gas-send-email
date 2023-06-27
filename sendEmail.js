@@ -51,6 +51,9 @@ const getLastColumnLetter = function getLastColumnLetter() {
  * The parameters in this `procParams` object will default to the
  * imported config file, calculating information from the active
  * sheet only where necessary. 
+ * 
+ * Additional information about `const config`: @{link emailConfig}
+ * 
  * @property {string} data.admin admin will receive error notifications
  * @property {string} data.formName 
  * @property {string} data.recipient 
@@ -76,7 +79,6 @@ const getLastColumnLetter = function getLastColumnLetter() {
  * @property {{firstCol: string, lastCol: string, lastRow: number}} data.sheetInfo
  * The first column is set to 'A' by default. To use a different first column
  * modify the `firstCol` parameter to another column in your sheet. 
- * Additional information about `const config`: {@link emailConfig}
  * */
 let procParams = {
   data: {
