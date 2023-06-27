@@ -87,79 +87,52 @@ const procParams = (recipient, mailFooter) => {
   // using config.js
   /**
    * `executor` is the return value for `procParams`
-   * @namespace executor 
-   * @var {object} executor
-   * @memberof procParams
+   * the parameters in the `executor` object will default to the
+   * imported config file, calculating information from the active
+   * sheet only where necessary. 
+   * @name executor 
    * @requires ./config.js
+   * @param {Object} data
+   * @param {string} data.admin admin will receive error notifications
+   * @param {string} data.formName 
+   * @param {string} recipient 
+   * add any recipient email addresses here. these may be single
+   * addresses or an array of quoted addresses. 
+   * @param {string} emailFooter
+   * `emailFooter` specifies the html string to be used in the emails
+   * that are sent from this script. Leave blank if you do not require
+   * an email footer
+   * @param {string} sheetId
+   * Property `sheetID` is required for this script to work properly
+   * Properties `formName` and `sheetId` will be extracted from
+   * `const formName` and `const sheet`
+   * @param {string} sheetNameFilter 
+   * used to extract the form name from the sheet name.
+   * the 'responses' default is typical for most forms.
+   * @param {string} subjectFilter
+   * `subjectFilter` is used to create the email subject from the sheet name.
+   * the text in the subjectFilter will be added to the sheet name
+   * to generate an email subject. if you do not want the additional
+   * text in the email title you can leave this section blank -- use ''
+   * NOTE the modifications above have not yet been tested (as of 2/16/2021)
+   * @param {{firstCol: string, lastCol: string, lastRow: number}} sheetInfo
+   * The first column is set to 'A' by default. To use a different first column
+   * modify the `firstCol` parameter to another column in your sheet. 
    * */
   let executor = {
-    /** 
-     * @prop {object} data 
-     * @memberof executor
-     * */
     data: {
-      // admin will receive error notifications
-      /** 
-       * @prop {string} admin 
-       * @memberof executor
-      */
       admin: config.admin,
-      // add any recipient names or code to the
-      // > executor.data.recipient function below
-      // NOTE formName and sheetId will be extracted from
-      // const formName and const sheet
       formName: config.formName | sheetName.replace(" (Responses"),
-      /** 
-       * @prop {string} recipient 
-       * @memberof executor
-       * */
       recipient: config.recipient,
-      /**
-       * leave emailFooter blank if it is not needed
-       * @prop {string} emailFooter 
-       * @memberof executor
-       * */
       emailFooter: config.mailFooter,
-      /** 
-       * Property `sheetID` is required for this script to work properly
-       * Properties `formName` and `sheetId` will be extracted from
-       * `const formName` and `const sheet`
-       * @prop {string} sheetId 
-       * @memberof executor
-       * */
       sheetId: config.sheetId | activeSpreadsheet.getSheetId(),
-      /**
-       * used to extract the form name from the sheet name.
-       * the 'responses' default is typical for most forms
-       * @prop {string} sheetNameFilter 
-       * @memberof executor
-       * */ 
       sheetNameFilter: config.sheetNameFilter | ` (Responses)`,
-      /** used to create the email subject from the sheet name.
-       * the text in the subjectFilter will be added to the sheet name
-       * to generate an email subject. if you do not want the additional
-       * text in the email title you can leave this section blank -- use ''
-       * NOTE the modifications above have not yet been tested (as of 2/16/2021)
-       * @todo verify the steps to change the sheetNameFilter work properly
-       * @prop {string} subjectFilter 
-       * @memberof executor
-       * */
       subjectFilter: config.subjectFilter | " Form Submission",
-      /** 
-       * @prop {Object} sheetInfo
-       * @memberof executor
-      */
       sheetInfo:
         config.sheetInfo |
         {
-          /**
-           * if you wamt the sheet to start at a different column, enter
-           * your desired column letter below.
-           * @type {string} */
           firstCol: "A",
-          /** @type {string} */
           lastCol: getLastColumnLetter(),
-          /** @type {number} */
           lastRow: activeSpreadsheet.getLastRow(),
         },
     },
