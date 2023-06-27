@@ -17,16 +17,7 @@ const getLastColumnLetter = function getLastColumnLetter() {
   var firstLetter = alphabet[Math.floor(col / alphaLen) - 1];
   return `${firstLetter}${alphabet.splice(col % alphaLen, 1).toString()}`;
 };
-// /**
-//  * `debugRunner()` tests the `sendEmail()` function, 
-//  * catching any errors that arise. 
-//  * @function debugRunner
-//  * @example
-//  * // Use in a trigger (pseudocode)
-//  * ScriptApp.addTrigger(debugRunner)
-//  * @argument {string} admin email address for sending error messages
-//  * @returns {void} 
-//  * */
+
 /** @ignore */
 const debugRunner = (admin) => {
   const debug = true;
@@ -40,40 +31,40 @@ const debugRunner = (admin) => {
     throw e;
   }
 };
+
 /**
-* @namespace executor
-* `executor` is the return value for `procParams`
-* the parameters in the `executor` object will default to the
-* imported config file, calculating information from the active
-* sheet only where necessary. 
-* @param {Object} executor.data
-* @param {string} executor.data.admin admin will receive error notifications
-* @param {string} executor.data.formName 
-* @param {string} executor.data.recipient 
+ * The parameters in this `procParams` object will default to the
+ * imported config file, calculating information from the active
+ * sheet only where necessary. 
+* @namespace procParams
+* @param {Object} procParams.data
+* @param {string} procParams.data.admin admin will receive error notifications
+* @param {string} procParams.data.formName 
+* @param {string} procParams.data.recipient 
 * add any recipient email addresses here. these may be single
 * addresses or an array of quoted addresses. 
-* @param {string} executor.data.emailFooter
+* @param {string} procParams.data.emailFooter
 * `emailFooter` specifies the html string to be used in the emails
 * that are sent from this script. Leave blank if you do not require
 * an email footer
-* @param {string} executor.data.sheetId
+* @param {string} procParams.data.sheetId
 * Property `sheetID` is required for this script to work properly
 * Properties `formName` and `sheetId` will be extracted from
 * `const formName` and `const sheet`
-* @param {string} executor.data.sheetNameFilter 
+* @param {string} procParams.data.sheetNameFilter 
 * used to extract the form name from the sheet name.
 * the 'responses' default is typical for most forms.
-* @param {string} executor.data.subjectFilter
+* @param {string} procParams.data.subjectFilter
 * `subjectFilter` is used to create the email subject from the sheet name.
 * the text in the subjectFilter will be added to the sheet name
 * to generate an email subject. if you do not want the additional
 * text in the email title you can leave this section blank -- use ''
 * NOTE the modifications above have not yet been tested (as of 2/16/2021)
-* @param {{firstCol: string, lastCol: string, lastRow: number}} executor.data.sheetInfo
+* @param {{firstCol: string, lastCol: string, lastRow: number}} procParams.data.sheetInfo
 * The first column is set to 'A' by default. To use a different first column
 * modify the `firstCol` parameter to another column in your sheet. 
 * */
-let executor = {
+let procParams = {
   data: {
     admin: config.admin,
     formName: config.formName | sheetName.replace(" (Responses"),
@@ -91,38 +82,6 @@ let executor = {
       },
   },
 };
-/** 
- * processing parameters specific to the needs of this form
- * edit this function to update required 'data' parameters and
- * add any helper scripts 
- * @function procParams
- * @argument {string} recipient the email address of the recipient 
- * @argument {string} mailFooter 
- * the html string to be used as a footer in the email message
- * @return {object} The return value is the `executor` object 
- * */
-const procParams = (recipient, mailFooter, config) => {
-  let executor = {
-    data: {
-      admin: config.admin,
-      formName: config.formName | sheetName.replace(" (Responses"),
-      recipient: config.recipient,
-      emailFooter: config.mailFooter,
-      sheetId: config.sheetId | activeSpreadsheet.getSheetId(),
-      sheetNameFilter: config.sheetNameFilter | ` (Responses)`,
-      subjectFilter: config.subjectFilter | " Form Submission",
-      sheetInfo:
-        config.sheetInfo |
-        {
-          firstCol: "A",
-          lastCol: getLastColumnLetter(),
-          lastRow: activeSpreadsheet.getLastRow(),
-        },
-    },
-  };
-
-  return executor;
-};
 
 /** 
  * main runner function. on form submit, execute sendEmail, end script.
@@ -138,7 +97,7 @@ const procParams = (recipient, mailFooter, config) => {
 function sendEmail(debug) {
   // create the helper object
   // /** @type {object} */
-  var parameters = procParams();
+  var parameters = procParams;
 
   // extract helper code and info from procParams (var parameters)
   // assumption: parameters.helper contains an object of helper vars / funcs
