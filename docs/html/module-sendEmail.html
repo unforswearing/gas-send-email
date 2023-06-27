@@ -64,7 +64,7 @@
     
 
     
-    <h4 class="name" id="~procParams"><span class="type-signature">(inner) </span>procParams<span class="signature">(recipient, mailFooter)</span><span class="type-signature"> &rarr; {object}</span></h4>
+    <h4 class="name" id="~procParams"><span class="type-signature">(inner) </span>procParams<span class="signature">(recipient, mailFooter, data, recipient, emailFooter, sheetId, sheetNameFilter, subjectFilter, sheetInfo)</span><span class="type-signature"> &rarr; {object}</span></h4>
     
 
     
@@ -149,7 +149,255 @@ add any helper scripts</p>
 
             
 
-            <td class="description last"><p>the html string to be used as a footer in the email message</p></td>
+            <td class="description last"><p>the html string to be used as a footer in the email message
+<code>executor</code> is the return value for <code>procParams</code>
+the parameters in the <code>executor</code> object will default to the
+imported config file, calculating information from the active
+sheet only where necessary.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>admin</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>admin will receive error notifications</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>formName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>recipient</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>add any recipient email addresses here. these may be single
+addresses or an array of quoted addresses.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>emailFooter</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p><code>emailFooter</code> specifies the html string to be used in the emails
+that are sent from this script. Leave blank if you do not require
+an email footer</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>sheetId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Property <code>sheetID</code> is required for this script to work properly
+Properties <code>formName</code> and <code>sheetId</code> will be extracted from
+<code>const formName</code> and <code>const sheet</code></p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>sheetNameFilter</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>used to extract the form name from the sheet name.
+the 'responses' default is typical for most forms.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>subjectFilter</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p><code>subjectFilter</code> is used to create the email subject from the sheet name.
+the text in the subjectFilter will be added to the sheet name
+to generate an email subject. if you do not want the additional
+text in the email title you can leave this section blank -- use ''
+NOTE the modifications above have not yet been tested (as of 2/16/2021)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>sheetInfo</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The first column is set to 'A' by default. To use a different first column
+modify the <code>firstCol</code> parameter to another column in your sheet.</p></td>
         </tr>
 
     
@@ -190,7 +438,7 @@ add any helper scripts</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sendEmail.js.html">sendEmail.js</a>, <a href="sendEmail.js.html#line33">line 33</a>
+        <a href="sendEmail.js.html">sendEmail.js</a>, <a href="sendEmail.js.html#line45">line 45</a>
     </li></ul></dd>
     
 
@@ -259,7 +507,7 @@ add any helper scripts</p>
     
 
     
-    <h4 class="name" id="~procParams"><span class="type-signature">(inner) </span>procParams<span class="signature">(recipient, mailFooter)</span><span class="type-signature"> &rarr; {object}</span></h4>
+    <h4 class="name" id="~procParams"><span class="type-signature">(inner) </span>procParams<span class="signature">(recipient, mailFooter, data, recipient, emailFooter, sheetId, sheetNameFilter, subjectFilter, sheetInfo)</span><span class="type-signature"> &rarr; {object}</span></h4>
     
 
     
@@ -344,7 +592,255 @@ add any helper scripts</p>
 
             
 
-            <td class="description last"><p>the html string to be used as a footer in the email message</p></td>
+            <td class="description last"><p>the html string to be used as a footer in the email message
+<code>executor</code> is the return value for <code>procParams</code>
+the parameters in the <code>executor</code> object will default to the
+imported config file, calculating information from the active
+sheet only where necessary.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>admin</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>admin will receive error notifications</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>formName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>recipient</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>add any recipient email addresses here. these may be single
+addresses or an array of quoted addresses.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>emailFooter</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p><code>emailFooter</code> specifies the html string to be used in the emails
+that are sent from this script. Leave blank if you do not require
+an email footer</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>sheetId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Property <code>sheetID</code> is required for this script to work properly
+Properties <code>formName</code> and <code>sheetId</code> will be extracted from
+<code>const formName</code> and <code>const sheet</code></p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>sheetNameFilter</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>used to extract the form name from the sheet name.
+the 'responses' default is typical for most forms.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>subjectFilter</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p><code>subjectFilter</code> is used to create the email subject from the sheet name.
+the text in the subjectFilter will be added to the sheet name
+to generate an email subject. if you do not want the additional
+text in the email title you can leave this section blank -- use ''
+NOTE the modifications above have not yet been tested (as of 2/16/2021)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>sheetInfo</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The first column is set to 'A' by default. To use a different first column
+modify the <code>firstCol</code> parameter to another column in your sheet.</p></td>
         </tr>
 
     
@@ -385,7 +881,7 @@ add any helper scripts</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sendEmail.js.html">sendEmail.js</a>, <a href="sendEmail.js.html#line33">line 33</a>
+        <a href="sendEmail.js.html">sendEmail.js</a>, <a href="sendEmail.js.html#line45">line 45</a>
     </li></ul></dd>
     
 
@@ -504,7 +1000,7 @@ add any helper scripts</p>
     
 
     
-    <h4 class="name" id="~procParams"><span class="type-signature">(inner) </span>procParams<span class="signature">(recipient, mailFooter)</span><span class="type-signature"> &rarr; {object}</span></h4>
+    <h4 class="name" id="~procParams"><span class="type-signature">(inner) </span>procParams<span class="signature">(recipient, mailFooter, data, recipient, emailFooter, sheetId, sheetNameFilter, subjectFilter, sheetInfo)</span><span class="type-signature"> &rarr; {object}</span></h4>
     
 
     
@@ -589,7 +1085,255 @@ add any helper scripts</p>
 
             
 
-            <td class="description last"><p>the html string to be used as a footer in the email message</p></td>
+            <td class="description last"><p>the html string to be used as a footer in the email message
+<code>executor</code> is the return value for <code>procParams</code>
+the parameters in the <code>executor</code> object will default to the
+imported config file, calculating information from the active
+sheet only where necessary.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>admin</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>admin will receive error notifications</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>formName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>recipient</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>add any recipient email addresses here. these may be single
+addresses or an array of quoted addresses.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>emailFooter</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p><code>emailFooter</code> specifies the html string to be used in the emails
+that are sent from this script. Leave blank if you do not require
+an email footer</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>sheetId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Property <code>sheetID</code> is required for this script to work properly
+Properties <code>formName</code> and <code>sheetId</code> will be extracted from
+<code>const formName</code> and <code>const sheet</code></p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>sheetNameFilter</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>used to extract the form name from the sheet name.
+the 'responses' default is typical for most forms.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>subjectFilter</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p><code>subjectFilter</code> is used to create the email subject from the sheet name.
+the text in the subjectFilter will be added to the sheet name
+to generate an email subject. if you do not want the additional
+text in the email title you can leave this section blank -- use ''
+NOTE the modifications above have not yet been tested (as of 2/16/2021)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>sheetInfo</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The first column is set to 'A' by default. To use a different first column
+modify the <code>firstCol</code> parameter to another column in your sheet.</p></td>
         </tr>
 
     
@@ -630,7 +1374,7 @@ add any helper scripts</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sendEmail.js.html">sendEmail.js</a>, <a href="sendEmail.js.html#line33">line 33</a>
+        <a href="sendEmail.js.html">sendEmail.js</a>, <a href="sendEmail.js.html#line45">line 45</a>
     </li></ul></dd>
     
 
@@ -699,7 +1443,7 @@ add any helper scripts</p>
     
 
     
-    <h4 class="name" id="~procParams"><span class="type-signature">(inner) </span>procParams<span class="signature">(recipient, mailFooter)</span><span class="type-signature"> &rarr; {object}</span></h4>
+    <h4 class="name" id="~procParams"><span class="type-signature">(inner) </span>procParams<span class="signature">(recipient, mailFooter, data, recipient, emailFooter, sheetId, sheetNameFilter, subjectFilter, sheetInfo)</span><span class="type-signature"> &rarr; {object}</span></h4>
     
 
     
@@ -784,7 +1528,255 @@ add any helper scripts</p>
 
             
 
-            <td class="description last"><p>the html string to be used as a footer in the email message</p></td>
+            <td class="description last"><p>the html string to be used as a footer in the email message
+<code>executor</code> is the return value for <code>procParams</code>
+the parameters in the <code>executor</code> object will default to the
+imported config file, calculating information from the active
+sheet only where necessary.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>admin</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>admin will receive error notifications</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>formName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>recipient</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>add any recipient email addresses here. these may be single
+addresses or an array of quoted addresses.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>emailFooter</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p><code>emailFooter</code> specifies the html string to be used in the emails
+that are sent from this script. Leave blank if you do not require
+an email footer</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>sheetId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>Property <code>sheetID</code> is required for this script to work properly
+Properties <code>formName</code> and <code>sheetId</code> will be extracted from
+<code>const formName</code> and <code>const sheet</code></p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>sheetNameFilter</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>used to extract the form name from the sheet name.
+the 'responses' default is typical for most forms.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>subjectFilter</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p><code>subjectFilter</code> is used to create the email subject from the sheet name.
+the text in the subjectFilter will be added to the sheet name
+to generate an email subject. if you do not want the additional
+text in the email title you can leave this section blank -- use ''
+NOTE the modifications above have not yet been tested (as of 2/16/2021)</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>sheetInfo</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The first column is set to 'A' by default. To use a different first column
+modify the <code>firstCol</code> parameter to another column in your sheet.</p></td>
         </tr>
 
     
@@ -825,7 +1817,7 @@ add any helper scripts</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="sendEmail.js.html">sendEmail.js</a>, <a href="sendEmail.js.html#line33">line 33</a>
+        <a href="sendEmail.js.html">sendEmail.js</a>, <a href="sendEmail.js.html#line45">line 45</a>
     </li></ul></dd>
     
 
@@ -910,7 +1902,7 @@ add any helper scripts</p>
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Tue Jun 27 2023 04:01:23 GMT-0400 (Eastern Daylight Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Tue Jun 27 2023 04:05:58 GMT-0400 (Eastern Daylight Time)
 </footer>
 
 <script> prettyPrint(); </script>
