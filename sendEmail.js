@@ -84,36 +84,52 @@ const procParams = (recipient, mailFooter) => {
   // using config.js
   /** 
    * `executor` is the return value for `procParams`
+   * @namespace executor 
    * @var {object} executor
    * @requires ./config.js
    * */
   let executor = {
-    /** @prop {object} data */
+    /** 
+     * @prop {object} data 
+     * @memberof executor
+     * */
     data: {
       // admin will receive error notifications
-      /** @prop {string} admin */
+      /** 
+       * @prop {string} admin 
+       * @memberof executor
+      */
       admin: config.admin,
       // add any recipient names or code to the
       // > executor.data.recipient function below
       // NOTE formName and sheetId will be extracted from
       // const formName and const sheet
       formName: config.formName | sheetName.replace(" (Responses"),
-      /** @prop {string} recipient */
+      /** 
+       * @prop {string} recipient 
+       * @memberof executor
+       * */
       recipient: config.recipient,
       /**
        * leave emailFooter blank if it is not needed
-       * @prop {string} emailFooter */
+       * @prop {string} emailFooter 
+       * @memberof executor
+       * */
       emailFooter: config.mailFooter,
       /** 
        * Property `sheetID` is required for this script to work properly
        * Properties `formName` and `sheetId` will be extracted from
        * `const formName` and `const sheet`
-       * @prop {string} sheetId */
+       * @prop {string} sheetId 
+       * @memberof executor
+       * */
       sheetId: config.sheetId | activeSpreadsheet.getSheetId(),
       /**
        * used to extract the form name from the sheet name.
        * the 'responses' default is typical for most forms
-       * @prop {string} sheetNameFilter */ 
+       * @prop {string} sheetNameFilter 
+       * @memberof executor
+       * */ 
       sheetNameFilter: config.sheetNameFilter | ` (Responses)`,
       /** used to create the email subject from the sheet name.
        * the text in the subjectFilter will be added to the sheet name
@@ -121,10 +137,13 @@ const procParams = (recipient, mailFooter) => {
        * text in the email title you can leave this section blank -- use ''
        * NOTE the modifications above have not yet been tested (as of 2/16/2021)
        * @todo verify the steps to change the sheetNameFilter work properly
-       * @prop {string} subjectFilter */
+       * @prop {string} subjectFilter 
+       * @memberof executor
+       * */
       subjectFilter: config.subjectFilter | " Form Submission",
       /** 
        * @prop {Object} sheetInfo
+       * @memberof executor
       */
       sheetInfo:
         config.sheetInfo |
