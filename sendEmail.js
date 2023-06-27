@@ -145,10 +145,7 @@ function sendEmail(debug) {
 
   // get the values for question and latest response ranges
   // @todo could this be done in a better way? (prolly)
-  /** @type {Array} */
   sheetInfo.questions = sheet.getRange(sheetInfo.questionString).getValues()[0];
-
-  /** @type {Array} */
   sheetInfo.submissionData = sheet
     .getRange(sheetInfo.rangeString)
     .getValues()[0];
