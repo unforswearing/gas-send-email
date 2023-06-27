@@ -117,26 +117,20 @@ let procParams = {
  * @returns {void} 
  * */
 function sendEmail(debug) {
-  // create the helper object
-  /** @type {procParams} */
+  /* create the helper object **/
   var parameters = procParams;
 
-  // extract helper code and info from procParams (var parameters)
-  // assumption: parameters.helper contains an object of helper vars / funcs
-  // var helper = parameters.helper;
-
-  /** @type {procParams.data} */
+  /** 
+   * extract helper code and info from procParams (var parameters)
+   * assumption: parameters.helper contains an object of helper vars / funcs
+   * var helper = parameters.helper;
+  * */
   var data = parameters.data;
-
-  /** @type {string} */
   var id = data.sheetId;
-
-  //  open the sheet for parsing
-  /** @type {object} */
+  /** open the sheet for parsing */
   var sheet = SpreadsheetApp.openById(id);
 
-  // sheetInfo = { firstCol: ..., lastCol: ... }
-  /** @type {object} */
+  /** sheetInfo = { firstCol: ..., lastCol: ... } */
   var sheetInfo = data.sheetInfo;
 
   // Get the latest response range as text
