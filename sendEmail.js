@@ -1,6 +1,6 @@
 /**
- * {@link https://github.com/unforswearing/gas-send-email|Repository}
  * @author unforswearing
+ * {@link https://github.com/unforswearing/gas-send-email|Repository}
  */
 
 import config from "./config";
