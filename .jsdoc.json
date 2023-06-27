@@ -8,10 +8,8 @@
     "include": ["config.js", "sendEmail.js", "debug.js"]
   },
   "templates": {
-
   },
   "opts": {
-    "template": "node_modules/clean-jsdoc-theme/"
   },
   "sourceType": "module"
 }
