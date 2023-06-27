@@ -49,7 +49,10 @@ const procParams = (recipient, mailFooter) => {
   /** @constant {object} activeSpreadsheet */
   const activeSpreadsheet = SpreadsheetApp.getActiveSheet();
 
-  /** @constant {string} sheetName */
+  /** 
+   * @constant {string} sheetName 
+   * @inner
+  */
   const sheetName = activeSpreadsheet.getName();
 
   /** 
@@ -59,6 +62,7 @@ const procParams = (recipient, mailFooter) => {
    * let lastColumn = getLastColumnLetter()
    * @argument {void}
    * @returns {string} The letter of the last column in the sheet
+   * @inner
    * */
   const getLastColumnLetter = function getLastColumnLetter() {
     var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
