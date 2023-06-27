@@ -5,7 +5,7 @@
   },
   "plugins": ["plugins/markdown"],
   "source": {
-    "include": ["config.js", "sendEmail.js", "debug.js"]
+    "include": ["config.js", "debug.js", "sendEmail.js"]
   },
   "templates": {
   },

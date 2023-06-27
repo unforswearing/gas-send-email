@@ -1,7 +1,12 @@
 /**
+ * This debug file can be run directly in the Google Apps Script project or
+ * by using a {@link https://developers.google.com/apps-script/guides/triggers/installable#google_apps_triggers|Google Apps Script installable trigger} to run
+ * the script at regular intervals. The `debugRunner()` function is only useful
+ * for sending test emails to the address listed in {@link module:emailConfig~config|config.admin} instead of using the value for `config.recipient`.
+ * 
  * @author unforswearing
  * {@link https://github.com/unforswearing/gas-send-email|Repository}
- * @module
+ * @module debug
  */
 
 import sendEmail from "./sendEmail";

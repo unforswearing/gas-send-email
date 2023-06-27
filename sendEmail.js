@@ -3,6 +3,7 @@
  * to edit any code in this file for the script to function, however,  please
  * add your project information to {@link module:emailConfig~config|the config object} 
  * before attempting to run any code in these files. 
+ * @author unforswearing 
  * @module sendEmail
  */
 
@@ -100,8 +101,10 @@ let procParams = {
  * This function should be added to a {@link https://developers.google.com/apps-script/guides/triggers/installable#google_apps_triggers|Google Apps Script installable trigger} to execute the execute sendMail function. 
  * <br /><br />
  * Passing `true` to this function (eg. `sendEmail(true)`) will send all 
- * runtime notifications to the email address listed in `procParams.data.admin`.
- * This is most useful for testing. 
+ * runtime notifications to the email address listed in `procParams.data.admin`
+ * instead of the recipient listed in `procParams.data.recipient`. 
+ * This is most useful for testing. You may also use the {@link module:debug~debugRunner|debugRunner function} directly to run the script 
+ * in "debug" mode. 
  * @function sendMail
  * @argument {boolean} debug specify whether the script should send errors to `admin`
  * @returns {void} 
@@ -204,4 +207,4 @@ function sendMail(debug) {
 
 export default sendMail;
 
-/** @author unforswearing */
+
