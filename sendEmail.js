@@ -78,7 +78,11 @@ const procParams = (recipient, mailFooter) => {
   };
 
   // using config.js
-  /** @var {object} executor */
+  /** 
+   * `executor` is the return value for `procParams`
+   * @var {object} executor 
+   * @inner
+   * */
   let executor = {
     data: {
       // admin will receive error notifications
