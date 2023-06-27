@@ -1,10 +1,9 @@
 /**
-* 
- * Please see the documentation for `const config` below for a description of
- * required parameters. Please find additional information in the 
- * {@link https://github.com/unforswearing/gas-send-email| Source Repository}
- * 
- * 
+ * This file contains the runner code for the send email script. You should not need
+ * to edit any code in this file for the script to function, however,  please
+ * add your project information to {@link module:emailConfig~config|the config object} 
+ * before attempting to run any code in these files. 
+ *  
  * @author unforswearing
  * @module sendEmail
  * @see {@link module:emailConfig|emailConfig}
