@@ -81,6 +81,7 @@ const procParams = (recipient, mailFooter) => {
   /** 
    * `executor` is the return value for `procParams`
    * @var {object} executor
+   * @requires ./config.js
    * @inner
    * */
   let executor = {
