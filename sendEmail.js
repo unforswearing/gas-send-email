@@ -1,3 +1,8 @@
+/**
+ * @module
+ * @author unforswearing
+ */
+
 // Repository: https://github.com/unforswearing/gas-send-email
 import config from "./config";
 
