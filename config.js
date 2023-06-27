@@ -4,6 +4,9 @@
  * @module emailConfig
  * */
 
+
+const _config = () => config;
+
 /**
  * @constant {Object} config
 * @property {string} admin admin will receive error notifications
@@ -43,6 +46,6 @@ const config = {
   sheetInfo: {},
 };
 
-// const setConfig = (configOptions) => {};
+
 
 export default config;
