@@ -3,10 +3,7 @@
  * to edit any code in this file for the script to function, however,  please
  * add your project information to {@link module:emailConfig~config|the config object} 
  * before attempting to run any code in these files. 
- *  
- * @author unforswearing
  * @module sendEmail
- * @see {@link module:emailConfig|emailConfig}
  */
 
 import config from "./config";
@@ -99,7 +96,9 @@ let procParams = {
 };
 
 /** 
- * main runner function. on form submit, execute sendMail, end script.
+ * The `sendMail()` function is the main runner function. 
+ * This function should be added to a Google Apps Script "on form submit", 
+ * trigger to execute the execute sendMail function. 
  * sendEmail(true) to send all notifications to 'admin' for testing. 
  * processing parameters specific to the needs of this form
  * edit this function to update required 'data' parameters and
@@ -205,3 +204,5 @@ function sendMail(debug) {
 }
 
 export default sendMail;
+
+/** @author unforswearing */
