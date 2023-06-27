@@ -28,6 +28,7 @@ const debugRunner = (admin) => {
  * processing parameters specific to the needs of this form
  * edit this function to update required 'data' parameters and
  * add any helper scripts 
+ * @function procParams
  * @argument {string} recipient the email address of the recipient 
  * @argument {string} mailFooter the html string to be used as a footer in the email message
  * @returns {object} 
@@ -59,11 +60,11 @@ const procParams = (recipient, mailFooter) => {
    * `getLastColumnLetter()` is used to retrieve the last column available
    * in the current sheet. This will be the last column that contains form data.
    * @function getLastColumnLetter
+   * @memberof procParams
    * @example 
    * let lastColumn = getLastColumnLetter()
    * @argument {void}
    * @returns {string} The letter of the last column in the sheet
-   * @inner
    * */
   const getLastColumnLetter = function getLastColumnLetter() {
     var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
