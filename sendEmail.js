@@ -82,41 +82,48 @@ const procParams = (recipient, mailFooter) => {
   let executor = {
     data: {
       // admin will receive error notifications
-      /** @prop {string} */
+      /** @prop {string} admin */
       admin: config.admin,
       // add any recipient names or code to the
       // > executor.data.recipient function below
       // NOTE formName and sheetId will be extracted from
       // const formName and const sheet
       formName: config.formName | sheetName.replace(" (Responses"),
-      /** @type {string} */
+      /** @prop {string} recipient */
       recipient: config.recipient,
-      // leave emailFooter blank if it is not needed
-      /** @type {string} */
+      /**
+       * leave emailFooter blank if it is not needed
+       * @prop {string} emailFooter */
       emailFooter: config.mailFooter,
-      // NOTE sheetID is required for this script to work properly
-      // NOTE formName and sheetId will be extracted from
-      // const formName and const sheet
-      /** @type {string} */
+      /** 
+       * Property `sheetID` is required for this script to work properly
+       * Properties `formName` and `sheetId` will be extracted from
+       * `const formName` and `const sheet`
+       * @prop {string} sheetId */
       sheetId: config.sheetId | activeSpreadsheet.getSheetId(),
-      // used to extract the form name from the sheet name.
-      // > the 'responses' default is typical for most forms
+      /**
+       * used to extract the form name from the sheet name.
+       * the 'responses' default is typical for most forms
+       * @prop {string} sheetNameFilter */ 
       sheetNameFilter: config.sheetNameFilter | ` (Responses)`,
-      // used to create the email subject from the sheet name.
-      // @todo verify the steps to change the sheetNameFilter work properly
-      // the text in the subjectFilter will be added to the sheet name
-      // to generate an email subject. if you do not want the additional
-      // text in the email title you can leave this section blank -- use ''
-      // NOTE the modifications above have not yet been tested (as of 2/16/2021)
-      /** @type {string} */
+      /** used to create the email subject from the sheet name.
+       * the text in the subjectFilter will be added to the sheet name
+       * to generate an email subject. if you do not want the additional
+       * text in the email title you can leave this section blank -- use ''
+       * NOTE the modifications above have not yet been tested (as of 2/16/2021)
+       * @todo verify the steps to change the sheetNameFilter work properly
+       * @prop {string} subjectFilter */
       subjectFilter: config.subjectFilter | " Form Submission",
-      /** @type {Object} */
+      /** 
+       * @prop {Object} sheetInfo
+      */
       sheetInfo:
         config.sheetInfo |
         {
-          // if you wamt the sheet to start at a different column, enter
-          // your desired column letter below.
-          /** @type {string} */
+          /**
+           * if you wamt the sheet to start at a different column, enter
+           * your desired column letter below.
+           * @type {string} */
           firstCol: "A",
           /** @type {string} */
           lastCol: getLastColumnLetter(),
