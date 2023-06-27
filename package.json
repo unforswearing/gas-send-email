@@ -4,6 +4,7 @@
   "description": "A quick and easy way to send emails to additional recipients for Google Form submissions",
   "main": "sendEmail.js",
   "devDependencies": {
+    "clean-jsdoc-theme": "^4.2.9",
     "jsdoc": "^3.6.7",
     "jsdoc-to-markdown": "^7.1.1"
   },
