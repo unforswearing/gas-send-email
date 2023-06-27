@@ -6,7 +6,7 @@
  * 
  * 
  * @author unforswearing
- * @module
+ * @module sendEmail
  */
 
 import config from "./config";
