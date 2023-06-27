@@ -1,9 +1,16 @@
 /**
  * @author unforswearing
  * {@link https://github.com/unforswearing/gas-send-email|Repository}
+ * @module
  */
 
-/** @private */
+import sendEmail from "./sendEmail";
+
+/** 
+ * @function debugRunner
+ * @argument {string} admin The email address to send errors
+ * @return {void}
+*/
 const debugRunner = (admin) => {
   const debug = true;
 
@@ -16,3 +23,5 @@ const debugRunner = (admin) => {
     throw e;
   }
 };
+
+export default debugRunner;

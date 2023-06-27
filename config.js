@@ -1,6 +1,7 @@
 /**
  * @author unforswearing
  * {@link https://github.com/unforswearing/gas-send-email|Repository}
+ * @module
  * */
 
 /**
