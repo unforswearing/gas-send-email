@@ -46,13 +46,18 @@ const debugRunner = (admin) => {
  * ```
  * */
 const procParams = (recipient, mailFooter) => {
-  /** @type {object} */
+  /** @constant {object} activeSpreadsheet */
   const activeSpreadsheet = SpreadsheetApp.getActiveSheet();
 
-  /** @type {string} */
+  /** @constant {string} sheetName */
   const sheetName = activeSpreadsheet.getName();
 
-  /** @returns {string} */
+  /** 
+   * `getLastColumnLetter()` is used to retrieve the last column available
+   * in the current sheet. This will be the last column that contains form data.
+   * @argument {void}
+   * @returns {string} The letter of the last column in the sheet
+   * */
   const getLastColumnLetter = function getLastColumnLetter() {
     var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
     var alphaLen = alphabet.length;
