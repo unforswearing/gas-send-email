@@ -1,8 +1,15 @@
 /**
  * ## Sending Email  
- * Please see the documentation for `const config` below for a description of
- * required parameters.
- * 
+ * The `sendEmail()` function is the main and only runner function for this script. 
+ * To have this function respond to new form responses, please add `sendMail()` 
+ * as an installable trigger in your project. Please see {@link https://developers.google.com/apps-script/guides/triggers/installable#google_apps_triggers|the installable triggers documentation} for more information.
+ * <br /><br />
+ * Your project information must be added to this config object before the 
+ * `sendEmail()` function will work correctly. Please see the documentation 
+ * for {@link module:emailConfig~config|config} for a description of 
+ * required parameters. 
+ * <br /><br />
+ * For debugging this script, please see {@link module:sendEmail~sendMail|the sendMail function} below or the {@link module:debug|debug.js file} for more information. 
  * @author unforswearing
  * @module sendEmail
  * @see {@link module:emailConfig~config|config}
