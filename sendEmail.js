@@ -1,11 +1,13 @@
 /**
- * ## Sending Email
- * This file contains the runner code for the send email script. You should not need
- * to edit any code in this file for the script to function, however,  please
- * add your project information to {@link module:emailConfig~config|the config object} 
- * before attempting to run any code in these files. 
- * @author unforswearing 
+* 
+ * Please see the documentation for `const config` below for a description of
+ * required parameters. Please find additional information in the 
+ * {@link https://github.com/unforswearing/gas-send-email| Source Repository}
+ * 
+ * 
+ * @author unforswearing
  * @module sendEmail
+ * @see {@link module:emailConfig}
  */
 
 import config from "./config";
@@ -51,9 +53,9 @@ const getLastColumnLetter = function getLastColumnLetter() {
  * imported config file, calculating information from the active
  * sheet only where necessary. 
  * @name procParams
- * @requires module:emailConfig~config
+ * @requires emailConfig.config
  * @property {string} data.admin admin will receive error notifications
- * @property {string} data.formName the name of the form you are using with this script
+ * @property {string} data.formName 
  * @property {string} data.recipient 
  * add any recipient email addresses here. these may be single
  * addresses or an array of quoted addresses. 
@@ -98,14 +100,11 @@ let procParams = {
 };
 
 /** 
- * The `sendMail()` function is the main runner function. 
- * This function should be added to a {@link https://developers.google.com/apps-script/guides/triggers/installable#google_apps_triggers|Google Apps Script installable trigger} to execute the execute sendMail function. 
- * <br /><br />
- * Passing `true` to this function (eg. `sendEmail(true)`) will send all 
- * runtime notifications to the email address listed in `procParams.data.admin`
- * instead of the recipient listed in `procParams.data.recipient`. 
- * This is most useful for testing. You may also use the {@link module:debug~debugRunner|debugRunner function} directly to run the script 
- * in "debug" mode. 
+ * main runner function. on form submit, execute sendMail, end script.
+ * sendEmail(true) to send all notifications to 'admin' for testing. 
+ * processing parameters specific to the needs of this form
+ * edit this function to update required 'data' parameters and
+ * add any helper scripts 
  * @function sendMail
  * @argument {boolean} debug specify whether the script should send errors to `admin`
  * @returns {void} 
@@ -207,5 +206,3 @@ function sendMail(debug) {
 }
 
 export default sendMail;
-
-
