@@ -6,7 +6,12 @@
  * with values from the current sheet environment via {@link module:sendEmail~procParams|the procParams object}.
  * 
  * Please see the documentation for `const config` below for a description of
+<<<<<<< HEAD
  * required parameters.
+=======
+ * required parameters. Please find additional information in the  
+ *  {@link https://github.com/unforswearing/gas-send-email|Source Repository}
+>>>>>>> 132ea5fc37a9cea1d14cf17bcdfd12626abe8596
  * 
  * @author unforswearing
  * @module emailConfig
