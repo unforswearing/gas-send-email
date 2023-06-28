@@ -1,4 +1,4 @@
-## Modules
+#### Modules
 
 <dl>
 <dt><a href="#module_emailConfig">emailConfig</a></dt>
@@ -28,7 +28,7 @@ This is most useful for testing.</p></dd>
 
 <a name="module_emailConfig"></a>
 
-## emailConfig
+#### emailConfig
 <h1>Configuration</h1>
 <p><code>config.js</code> contains the configuration for the <code>sendMail</code> function.
 The <code>config</code> object must be completed for the <code>sendMail</code> function
@@ -41,7 +41,7 @@ required parameters. Please find additional information in the
 **Author**: unforswearing  
 <a name="module_emailConfig..config"></a>
 
-### emailConfig~config : <code>Object</code>
+##### emailConfig~config : <code>Object</code>
 **Kind**: inner constant of [<code>emailConfig</code>](#module_emailConfig)  
 **Properties**
 
@@ -58,7 +58,7 @@ required parameters. Please find additional information in the
 
 <a name="module_sendEmail"></a>
 
-## sendEmail
+#### sendEmail
 <h1>Sending Email</h1>
 <p>This file contains the runner code for the send email script. You should not need
 to edit any code in this file for the script to function, however,  please
@@ -76,7 +76,7 @@ before attempting to run any code in these files.</p>
 
 <a name="module_sendEmail..procParams"></a>
 
-### sendEmail~procParams
+##### sendEmail~procParams
 <p>The parameters in this <code>procParams</code> object will default to the
 imported config file, calculating information from the active
 sheet only where necessary.</p>
@@ -98,7 +98,7 @@ sheet only where necessary.</p>
 
 <a name="module_sendEmail..sendMail"></a>
 
-### sendEmail~sendMail(debug) ⇒ <code>void</code>
+##### sendEmail~sendMail(debug) ⇒ <code>void</code>
 <p>The <code>sendMail()</code> function is the main runner function.
 This function should be added to a [Google Apps Script installable trigger](https://developers.google.com/apps-script/guides/triggers/installable#google_apps_triggers) to execute the execute sendMail function.
 <br /><br />
@@ -122,7 +122,7 @@ in &quot;debug&quot; mode.</p>
 
 <a name="module_sendEmail..sendMail..data"></a>
 
-#### sendMail~data
+###### sendMail~data
 <p>extract helper code and info from procParams (var parameters)
 assumption: parameters.helper contains an object of helper vars / funcs
 var helper = parameters.helper;</p>
@@ -130,19 +130,19 @@ var helper = parameters.helper;</p>
 **Kind**: inner property of [<code>sendMail</code>](#module_sendEmail..sendMail)  
 <a name="module_sendEmail..sendMail..sheet"></a>
 
-#### sendMail~sheet
+###### sendMail~sheet
 <p>open the sheet for parsing</p>
 
 **Kind**: inner property of [<code>sendMail</code>](#module_sendEmail..sendMail)  
 <a name="module_sendEmail..sendMail..sheetInfo"></a>
 
-#### sendMail~sheetInfo
+###### sendMail~sheetInfo
 <p>sheetInfo = { firstCol: ..., lastCol: ... }</p>
 
 **Kind**: inner property of [<code>sendMail</code>](#module_sendEmail..sendMail)  
 <a name="module_debug"></a>
 
-## debug
+#### debug
 <h1>Debugging</h1>
 <p>The <code>debugRunner</code> function is equivalent to running <code>sendMail(true)</code> -
 all actions between debugRunner and sendMail(true) are equivalent.
@@ -154,7 +154,7 @@ This is most useful for testing.</p>
 **Author**: unforswearing  
 <a name="module_debug..debugRunner"></a>
 
-### debug~debugRunner(admin) ⇒ <code>void</code>
+##### debug~debugRunner(admin) ⇒ <code>void</code>
 **Kind**: inner method of [<code>debug</code>](#module_debug)  
 
 | Param | Type | Description |
