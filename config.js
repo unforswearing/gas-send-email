@@ -1,4 +1,5 @@
 /**
+ * ## Configuration
  * `config.js` contains the configuration for the `sendMail` function. 
  * The `config` object must be completed for the `sendMail` function 
  * to work correctly. This object is passed to {@link module:sendEmail~sendMail}

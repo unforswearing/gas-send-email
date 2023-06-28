@@ -1,5 +1,5 @@
 /**
- * # Debugging
+ * ## Debugging
  * The `debugRunner` function is equivalent to running `sendMail(true)` - 
  * all actions between debugRunner and sendMail(true) are equivalent. 
  * Both functions will send all runtime notifications to the email 

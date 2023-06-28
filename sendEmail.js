@@ -1,5 +1,5 @@
 /**
- * # Sending Email
+ * ## Sending Email
  * This file contains the runner code for the send email script. You should not need
  * to edit any code in this file for the script to function, however,  please
  * add your project information to {@link module:emailConfig~config|the config object} 
