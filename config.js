@@ -9,7 +9,6 @@
  * required parameters. Please find additional information in the  
  *  {@link https://github.com/unforswearing/gas-send-email|Source Repository}
  * 
- * 
  * @author unforswearing
  * @module emailConfig
  * */
