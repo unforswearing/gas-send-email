@@ -47,9 +47,11 @@ const getLastColumnLetter = function getLastColumnLetter() {
 };
 
 /**
- * The parameters in this `procParams` object will default to the
- * imported config file, calculating information from the active
- * sheet only where necessary. 
+ * ## procParams
+ * `procParams` is created using values from {@link module:emailConfig~config}.
+ * **Do not modify the `procParams` object directly!** The parameters 
+ * in this `procParams` object will default to the imported config file, 
+ * calculating information from the active sheet only where necessary. 
  * @name procParams
  * @requires emailConfig.config
  * @property {string} data.admin admin will receive error notifications
