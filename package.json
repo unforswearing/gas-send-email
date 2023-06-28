@@ -26,8 +26,8 @@
     "unforswearing"
   ],
   "scripts": {
-    "html-docs": "jsdoc sendEmail.js -c .jsdoc.json -d docs/html",
-    "md-docs": "node_modules/jsdoc-to-markdown/bin/cli.js sendEmail.js > docs/README.md",
+    "html-docs": "jsdoc --readme README.md -c .jsdoc.json -d docs/html",
+    "md-docs": "node_modules/jsdoc-to-markdown/bin/cli.js README.md -c .jsdoc.json -d 4 >| docs/README.md",
     "preview-html-docs": "/usr/local/bin/serve"
   },
   "author": "unforswearing",

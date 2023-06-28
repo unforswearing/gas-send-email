@@ -1,13 +1,11 @@
 /**
-* 
+ * ## Sending Email  
  * Please see the documentation for `const config` below for a description of
- * required parameters. Please find additional information in the 
- * {@link https://github.com/unforswearing/gas-send-email| Source Repository}
- * 
+ * required parameters.
  * 
  * @author unforswearing
  * @module sendEmail
- * @see {@link module:emailConfig}
+ * @see {@link module:emailConfig~config|config}
  */
 
 import config from "./config";
@@ -99,12 +97,17 @@ let procParams = {
   },
 };
 
-/** 
- * main runner function. on form submit, execute sendMail, end script.
+/**
+ * ## Using the `sendEmail()` function 
+ * 'sendMail()` is the main runner function. Be sure to add this functiom
+ * as an **installable trigger** in your project. See {@link https://developers.google.com/apps-script/guides/triggers/installable#google_apps_triggers|the installable triggers documentation} for more information.
+ * ### Debugging 
  * sendEmail(true) to send all notifications to 'admin' for testing. 
- * processing parameters specific to the needs of this form
- * edit this function to update required 'data' parameters and
- * add any helper scripts 
+ * The `debugRunner` function is equivalent to running `sendMail(true)` - 
+ * all actions between debugRunner and sendMail(true) are equivalent. 
+ * Both functions will send all runtime notifications to the email 
+ * address listed in `procParams.data.admin` instead of the recipient 
+ * listed in `procParams.data.recipient`. This is most useful for testing. 
  * @function sendMail
  * @argument {boolean} debug specify whether the script should send errors to `admin`
  * @returns {void} 
