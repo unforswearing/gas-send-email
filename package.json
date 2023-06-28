@@ -28,6 +28,7 @@
   "scripts": {
     "html-docs": "jsdoc --readme README.md -c .jsdoc.json -d docs/html",
     "md-docs": "node_modules/jsdoc-to-markdown/bin/cli.js README.md -c .jsdoc.json -d 4 >| docs/README.md",
+    "docs": "npm run html-docs && npm run md-docs",
     "preview-html-docs": "/usr/local/bin/serve"
   },
   "author": "unforswearing",

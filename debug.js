@@ -13,7 +13,11 @@
 import sendEmail from "./sendEmail";
 
 /** 
- * 
+ * ## Using debugRunner() 
+ * This function is added as a convenience for testing the script againt 
+ * the latest form response. To automate this process you may add this 
+ * function as an **installable trigger** in your project. 
+ * See {@link https://developers.google.com/apps-script/guides/triggers/installable#google_apps_triggers|the installable triggers documentation} for more information.
  * @function debugRunner
  * @argument {string} admin The email address to send errors
  * @return {void}
