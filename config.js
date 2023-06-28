@@ -1,13 +1,13 @@
 /**
+ * ## Configuration
  * `config.js` contains the configuration for the `sendMail` function. 
  * The `config` object must be completed for the `sendMail` function 
- * to work correctly. This object is passed to {@link module:sendEmail~sendMail}
- * with values from the current sheet environment via {@link module:sendEmail~procParams}.
+ * to work correctly. This object is passed to {@link module:sendEmail~sendMail|the sendEmail function}
+ * with values from the current sheet environment via {@link module:sendEmail~procParams|the procParams object}.
  * 
  * Please see the documentation for `const config` below for a description of
- * required parameters. Please find additional information in the 
- * {@link https://github.com/unforswearing/gas-send-email| Source Repository}
- * 
+ * required parameters. Please find additional information in the  
+ *  {@link https://github.com/unforswearing/gas-send-email|Source Repository}
  * 
  * @author unforswearing
  * @module emailConfig

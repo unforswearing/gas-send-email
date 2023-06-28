@@ -1,7 +1,13 @@
 /**
+ * ## Debugging
+ * The `debugRunner` function is equivalent to running `sendMail(true)` - 
+ * all actions between debugRunner and sendMail(true) are equivalent. 
+ * Both functions will send all runtime notifications to the email 
+ * address listed in `procParams.data.admin` instead of the recipient 
+ * listed in `procParams.data.recipient`. 
+ * This is most useful for testing. 
  * @author unforswearing
- * {@link https://github.com/unforswearing/gas-send-email|Repository}
- * @module
+ * @module debug
  */
 
 import sendEmail from "./sendEmail";
