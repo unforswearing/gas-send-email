@@ -84,7 +84,6 @@ let procParams = {
 };
 
 /**
- * ## Using the sendEmail() function 
  * 'sendMail()` is the main runner function. Be sure to add this functiom
  * as an **installable trigger** in your project. See {@link https://developers.google.com/apps-script/guides/triggers/installable#google_apps_triggers|the installable triggers documentation} for more information.
  * ### Debugging 
