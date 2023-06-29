@@ -64,7 +64,7 @@ const getLastColumnLetter = function getLastColumnLetter() {
  * in this `procParams` object will default to the imported config file, 
  * calculating information from the active sheet only where necessary. 
  * @name procParams
- * @borrows emailConfig~config as procParams
+ * @borrows emailConfig#config as procParams
 * */
 let procParams = {
   admin: config.admin,
