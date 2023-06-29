@@ -47,7 +47,11 @@ const config = {
   sheetId: undefined,
   sheetNameFilter: undefined,
   subjectFilter: undefined,
-  sheetInfo: {},
+  sheetInfo: {
+    firstCol: "A",
+    lastCol: getLastColumnLetter(),
+    lastRow: activeSpreadsheet.getLastRow(),
+  },
 };
 
 export default config;
