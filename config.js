@@ -5,13 +5,14 @@
  * to work correctly. This object is passed to {@link module:sendEmail~sendMail|the sendEmail function} with values from the current sheet environment via 
  * {@link module:sendEmail~procParams|the procParams object}.
  * 
- * Please see the documentation for `const config` below for a description of
- * required parameters. 
+ * Please see the documentation for the parameters in `const config` below. 
+ * All parameter values are `undefined` by default. 
  * @author unforswearing
  * @module emailConfig
  * */
 
 /**
+ * Update `const` with values specific to your project. 
  * @constant {Object} config
 * @property {string} admin admin will receive error notifications
 * @property {string} formName 
