@@ -13,7 +13,6 @@
 import sendEmail from "./sendEmail";
 
 /** 
- * ## Using debugRunner() 
  * This function is added as a convenience for testing the script againt 
  * the latest form response. To automate this process you may add this 
  * function as an **installable trigger** in your project. 
