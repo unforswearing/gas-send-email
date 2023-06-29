@@ -11,8 +11,6 @@
  * @module emailConfig
  * */
 
-const _config = () => config;
-
 /**
  * @constant {Object} config
 * @property {string} admin admin will receive error notifications
@@ -42,13 +40,13 @@ const _config = () => config;
 * modify the `firstCol` parameter to another column in your sheet. 
 * */
 const config = {
-  admin: "",
-  formName: "",
-  recipient: "",
-  emailFooter: "",
-  sheetId: "",
-  sheetNameFilter: "",
-  subjectFilter: "",
+  admin: undefined,
+  formName: undefined,
+  recipient: undefined,
+  emailFooter: undefined,
+  sheetId: undefined,
+  sheetNameFilter: undefined,
+  subjectFilter: undefined,
   sheetInfo: {},
 };
 
