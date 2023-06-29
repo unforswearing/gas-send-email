@@ -125,8 +125,8 @@ function sendMail(debug) {
    * change 'A1' to the location of the cell containing the first question 
    * replace the '1' in 'sheetInfo.lastCol with the number of the row 
    * containing the last question.
-   * sheetInfo.questionString = `A1:${sheetInfo.lastCol + 1}`;
    * */
+  sheetInfo.questionString = `A1:${sheetInfo.lastCol + 1}`;
 
   /** 
    * get the values for question and latest response ranges
