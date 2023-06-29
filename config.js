@@ -14,8 +14,9 @@
 /**
  * Update `const` with values specific to your project. 
  * @constant {Object} config
-* @property {string} admin admin will receive error notifications
+* @property {string} admin Admin will receive error notifications
 * @property {string} formName 
+* The name of the form used to add responses to your spreadsheet
 * @property {string} recipient 
 * Add email addresses here. All form responses will be sent to any 
 * address added. Addresses may be for one individual or an array of 
