@@ -21,7 +21,6 @@ import config from "./config";
  * Get the spreadsheet object for the active spreadsheet.
  * Uses the Apps Script class `SpreadsheetApp` 
  * @constant {Object} 
- * @private
  * */
 const activeSpreadsheet = SpreadsheetApp.getActiveSheet();
 
@@ -29,22 +28,24 @@ const activeSpreadsheet = SpreadsheetApp.getActiveSheet();
  * Use the `activeSpreadsheet` object to retrieve the name
  * of the current sheet via the `getName()` method.  
  * @constant {string} 
- * @private
  * */
 const sheetName = activeSpreadsheet.getName();
 
 /**
  * A method to retrieve the letter of the last used column
- * in the spreadsheet. 
- * @function getLastColumnletter 
+ * in the spreadsheet. Use getLastColumnLetter as the value for 
+ * the {@link emailConfig~config|the config object} parameter 
+ * `data.sheetInfo.lastColumnLetter`. This is set by default in 
+ * the `sendMail` function.
+ * @function getLastColumnLetter 
  * @example 
- * // use the lastCol variable to create a range
+ * // Example: modify the script to retrieve an arbitrary range
+ * // from your Google Spreadsheet
  * const getLastRange = () => {
  *   let lastCol = getLastColumnLetter()
  *   return activeSpreadsheet.getRange(`A30:${lastCol}30`)
  * }
  * @return {string} The last column letter as a string.
- * @private
 */
 const getLastColumnLetter = function getLastColumnLetter() {
   var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
