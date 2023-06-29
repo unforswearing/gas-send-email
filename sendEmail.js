@@ -10,6 +10,7 @@
  * required parameters. 
  * <br /><br />
  * For debugging this script, please see {@link module:sendEmail~sendMail|the sendMail function} below or the {@link module:debug|debug.js file} for more information. 
+ * 
  * @author unforswearing
  * @module sendEmail
  * @see {@link module:emailConfig~config|config}
