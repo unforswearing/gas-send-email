@@ -19,14 +19,14 @@ import config from "./config";
 
 /**
  * Get the spreadsheet object for the active spreadsheet.
- * Uses the Apps Script class `SpreadsheetApp` 
+ * Uses the Google Apps Script {@link https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app|`SpreadsheetApp` class}.
  * @constant {Object} 
  * */
 const activeSpreadsheet = SpreadsheetApp.getActiveSheet();
 
 /**
  * Use the `activeSpreadsheet` object to retrieve the name
- * of the current sheet via the `getName()` method.  
+ * of the current sheet via the ${@link https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#getName()|`getName()`} method.  
  * @constant {string} 
  * */
 const sheetName = activeSpreadsheet.getName();
