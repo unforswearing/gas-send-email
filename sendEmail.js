@@ -66,49 +66,23 @@ const getLastColumnLetter = function getLastColumnLetter() {
  * calculating information from the active sheet only where necessary. 
  * @name procParams
  * @requires emailConfig.config
- * @property {string} data.admin admin will receive error notifications
- * @property {string} data.formName 
- * @property {string} data.recipient 
- * add any recipient email addresses here. these may be single
- * addresses or an array of quoted addresses. 
- * @property {string} data.emailFooter
- * `emailFooter` specifies the html string to be used in the emails
- * that are sent from this script. Leave blank if you do not require
- * an email footer
- * @property {string} data.sheetId
- * Property `sheetID` is required for this script to work properly
- * Properties `formName` and `sheetId` will be extracted from
- * `const formName` and `const sheet`
- * @property {string} data.sheetNameFilter 
- * used to extract the form name from the sheet name.
- * the 'responses' default is typical for most forms.
- * @property {string} data.subjectFilter
- * `subjectFilter` is used to create the email subject from the sheet name.
- * the text in the subjectFilter will be added to the sheet name
- * to generate an email subject. if you do not want the additional
- * text in the email title you can leave this section blank -- use ''
- * NOTE the modifications above have not yet been tested (as of 2/16/2021)
- * @property {{firstCol: string, lastCol: string, lastRow: number}} data.sheetInfo
- * The first column is set to 'A' by default. To use a different first column
- * modify the `firstCol` parameter to another column in your sheet. 
- * */
+ * @borrows emailConfig.config as procParams
+* */
 let procParams = {
-  data: {
-    admin: config.admin,
-    formName: config.formName | sheetName.replace(" (Responses"),
-    recipient: config.recipient,
-    emailFooter: config.emailFooter | "",
-    sheetId: config.sheetId | activeSpreadsheet.getSheetId(),
-    sheetNameFilter: config.sheetNameFilter | ` (Responses)`,
-    subjectFilter: config.subjectFilter | " Form Submission",
-    sheetInfo:
-      config.sheetInfo |
-      {
-        firstCol: "A",
-        lastCol: getLastColumnLetter(),
-        lastRow: activeSpreadsheet.getLastRow(),
-      },
-  },
+  admin: config.admin,
+  formName: config.formName | sheetName.replace(" (Responses"),
+  recipient: config.recipient,
+  emailFooter: config.emailFooter | "",
+  sheetId: config.sheetId | activeSpreadsheet.getSheetId(),
+  sheetNameFilter: config.sheetNameFilter | ` (Responses)`,
+  subjectFilter: config.subjectFilter | " Form Submission",
+  sheetInfo:
+    config.sheetInfo |
+    {
+      firstCol: "A",
+      lastCol: getLastColumnLetter(),
+      lastRow: activeSpreadsheet.getLastRow(),
+    }
 };
 
 /**
@@ -135,13 +109,12 @@ function sendMail(debug) {
    * assumption: parameters.helper contains an object of helper vars / funcs
    * var helper = parameters.helper;
   * */
-  var data = parameters.data;
-  var id = data.sheetId;
+  var id = parameters.sheetId;
   /** open the sheet for parsing */
   var sheet = SpreadsheetApp.openById(id);
 
   /** sheetInfo = { firstCol, lastCol } */
-  var sheetInfo = data.sheetInfo;
+  var sheetInfo = parameters.sheetInfo;
 
   /**
    * Get the latest response range as text
@@ -168,10 +141,10 @@ function sendMail(debug) {
     .getValues()[0];
 
   /** only shorten timestamps if the timestamps array has a value */
-  if (data.timestampsArray.join("")) {
-    for (var n in data.timestampsArray) {
+  if (parameters.timestampsArray.join("")) {
+    for (var n in parameters.timestampsArray) {
       /** tsi === time stamp index */
-      var tsi = data.timestampsArray[n];
+      var tsi = parameters.timestampsArray[n];
 
       /** change the date formatting if needed */
       sheetInfo.submissionData[tsi] = Utilities.formatDate(
@@ -205,11 +178,11 @@ function sendMail(debug) {
   dataTable = `<table ${tablestyle}>${dataTable.join("")}</tables>`;
 
   /** Use admin email address if debug is true, otherwise use the script default */
-  var recipient = debug === true ? data.admin : data.recipient();
+  var recipient = debug === true ? parameters.admin : parameters.recipient();
 
   /** create email subject */
-  var sheetName = sheet.getName().replace(data.sheetNameFilter, "");
-  var subject = sheetName + data.subjectFilter;
+  var sheetName = sheet.getName().replace(parameters.sheetNameFilter, "");
+  var subject = sheetName + parameters.subjectFilter;
 
   /** add a company logo if desired. otherwise, comment out the two lines below */
   var logo = undefined;
