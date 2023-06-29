@@ -1,6 +1,6 @@
 # Google Apps Script - Send Email
 
-> A simple send email function for [Google Apps Script](https://developers.google.com/apps-script/reference/) Form and Spreadsheet projects. 
+> A better form submission notification message for [Google Apps Script](https://developers.google.com/apps-script/reference/) Form and Spreadsheet projects. 
 
 This project is aimed at users who use Google Spreadsheets to collect Google Form response data, and want more informative notifications when a new form is submitted. This project intends to be a replacement for the default [Google Sheet edit notifications](https://support.google.com/docs/answer/91588?hl=en&co=GENIE.Platform%3DDesktop) by providing the full form submission in the email notification. 
 
@@ -31,7 +31,7 @@ const config = {
       "marketing@example.com",
       "ceo@example.com
     ]
-  emailFooter: "<br />Sent via Google Sheet, do not reply",
+  emailFooter: "<br />This is an automated message, do not reply",
   sheetId: "1234567890abcdef,
   sheetNameFilter: " Responses",
   subjectFilter: "New Submission: ",
