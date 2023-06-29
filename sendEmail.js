@@ -26,7 +26,7 @@ const activeSpreadsheet = SpreadsheetApp.getActiveSheet();
 
 /**
  * Use the `activeSpreadsheet` object to retrieve the name
- * of the current sheet via the **{@link https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#getName()|getName)}** method.  
+ * of the current sheet via the **{@link https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#getName()|getName}** method.  
  * @constant {string} 
  * */
 const sheetName = activeSpreadsheet.getName();
