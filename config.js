@@ -12,7 +12,28 @@
  * */
 
 /**
- * Update `const` with values specific to your project. 
+ * Update `const` with values specific to your project. See example 
+ * configuration object below. 
+ * @example 
+ * // Sample configuration 
+ * const config = {
+ *   admin: "rstevens@example.com",
+ *   formName: "Site Survey",
+ *   recipient: [ 
+ *     "marketing@example.com",
+ *     "ceo@example.com
+ *   ]
+ *   emailFooter: "<br />This is an automated message, do not reply",
+ *   sheetId: "1234567890abcdef,
+ *   sheetNameFilter: " Responses",
+ *   subjectFilter: "New Submission: ",
+ *   sheetInfo: {
+ *     firstCol: "A",
+ *     lastCol: "R", 
+ *     // the lastRow parameter does not need to be edited
+ *     lastRow: activeSpreadsheet.getLastRow(), 
+ *   },
+ * }
  * @constant {Object} config
 * @property {string} admin Admin will receive error notifications
 * @property {string} formName 
