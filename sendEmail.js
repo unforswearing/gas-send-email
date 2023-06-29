@@ -140,34 +140,40 @@ function sendMail(debug) {
   /** open the sheet for parsing */
   var sheet = SpreadsheetApp.openById(id);
 
-  /** sheetInfo = { firstCol: ..., lastCol: ... } */
+  /** sheetInfo = { firstCol, lastCol } */
   var sheetInfo = data.sheetInfo;
 
-  // Get the latest response range as text
+  /**
+   * Get the latest response range as text
+   * eg. "A10:G10"
+  * */
   sheetInfo.rangeString = `${sheetInfo.firstCol}${sheetInfo.lastRow}:${sheetInfo.lastCol}${sheetInfo.lastRow}`;
 
-  // use the response range to get the questions from row 1
-  // if your questions are in a different row or column
-  // change 'A1' to the location of the cell containing the first question
-  // replace the '1' in 'sheetInfo.lastCol with the number of the row
-  // containing the last question.
-  sheetInfo.questionString = `A1:${sheetInfo.lastCol + 1}`;
+  /**
+   * use the response range to get the questions from row 1 
+   * if your questions are in a different row or column 
+   * change 'A1' to the location of the cell containing the first question 
+   * replace the '1' in 'sheetInfo.lastCol with the number of the row 
+   * containing the last question.
+   * sheetInfo.questionString = `A1:${sheetInfo.lastCol + 1}`;
+   * */
 
-  // get the values for question and latest response ranges
-  // @todo could this be done in a better way? (prolly)
+  /** 
+   * get the values for question and latest response ranges
+  * */
   sheetInfo.questions = sheet.getRange(sheetInfo.questionString).getValues()[0];
 
   sheetInfo.submissionData = sheet
     .getRange(sheetInfo.rangeString)
     .getValues()[0];
 
-  // only shorten timestamps if the timestamps array has a value
+  /** only shorten timestamps if the timestamps array has a value */
   if (data.timestampsArray.join("")) {
     for (var n in data.timestampsArray) {
-      // tsi === time stamp index
+      /** tsi === time stamp index */
       var tsi = data.timestampsArray[n];
 
-      // change the date formatting if needed
+      /** change the date formatting if needed */
       sheetInfo.submissionData[tsi] = Utilities.formatDate(
         sheetInfo.submissionData[tsi],
         Session.getScriptTimeZone(),
@@ -176,46 +182,47 @@ function sendMail(debug) {
     }
   }
 
-  // create the submission info table and styles for html emails
-  // table rows will be pushed to the dataTable column in the loop below
+  /**
+   * create the submission info table and styles for html emails
+   * table rows will be pushed to the dataTable column in the loop below
+  * */
   var dataTable = [];
   var tdstyle = 'style="padding:7px;"';
 
-  // loop through the submissionData to create a table of questions and answers
+  /** loop through the submissionData to create a table of questions and answers */
   for (var i in sheetInfo.submissionData) {
     var answer = sheetInfo.submissionData[i];
     var question = sheetInfo.questions[i];
 
-    // add the generated row to the dataTable array
+    /** add the generated row to the dataTable array */
     dataTable.push(
       `<tr><td align="right" ${tdstyle}><b>${question}</b></td><td align="left"  ${tdstyle}>${answer}</td></tr>`
     );
   }
 
-  // add styles for full table and nest the dataTable rows in table tags
+  /** add styles for full table and nest the dataTable rows in table tags */
   var tablestyle = 'style="width:80%;padding:7px;"';
   dataTable = `<table ${tablestyle}>${dataTable.join("")}</tables>`;
 
-  // Use admin email address if debug is true, otherwise use the script default
+  /** Use admin email address if debug is true, otherwise use the script default */
   var recipient = debug === true ? data.admin : data.recipient();
 
-  // create email subject
+  /** create email subject */
   var sheetName = sheet.getName().replace(data.sheetNameFilter, "");
   var subject = sheetName + data.subjectFilter;
 
-  // add a company logo if desired. otherwise, comment out the two lines below
-  // @todo logo can probably be added to procParams - logo = procParams.logo || '';
+  /** add a company logo if desired. otherwise, comment out the two lines below */
   var logo = undefined;
   logo = `<img src="${logo}" width="120px" height="80px">`;
 
-  // create the email body
+  /** create the email body */
   var emailFooter = parameters.emailFooter;
 
   var body = `${logo}<br><br>
     'Hello,<br><br>'${sheetName} form was submitted on ${sheetInfo.submissionData[0]}. 
     Please find the submitted information below.<hr><br>${dataTable}<br><br><br><br>${emailFooter}`;
 
-  // send email to 'recipient', admin if debugging
+  /** send email to 'recipient', admin if debugging */
   MailApp.sendEmail(recipient, subject, body, {
     htmlBody: body,
     noReply: true,
