@@ -38,7 +38,11 @@ const sheetName = activeSpreadsheet.getName();
  * in the spreadsheet. 
  * @function getLastColumnletter 
  * @example 
- * let lastCol = getLastColumnLetter()
+ * // use the lastCol variable to create a range
+ * const getLastRange = () => {
+ *   let lastCol = getLastColumnLetter()
+ *   return activeSpreadsheet.getRange(`A30:${lastCol}30`)
+ * }
  * @return {string} The last column letter as a string.
  * @private
 */
