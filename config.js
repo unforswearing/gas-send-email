@@ -49,7 +49,7 @@ const config = {
   subjectFilter: undefined,
   sheetInfo: {
     firstCol: "A",
-    lastCol: getLastColumnLetter(),
+    lastCol: getLastColumnLetter(), 
     lastRow: activeSpreadsheet.getLastRow(),
   },
 };
