@@ -19,14 +19,14 @@ import config from "./config";
 
 /**
  * Get the spreadsheet object for the active spreadsheet.
- * Uses the Google Apps Script {@link https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app|`SpreadsheetApp` class}.
+ * Uses the Google Apps Script **{@link https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet-app|SpreadsheetApp class}**.
  * @constant {Object} 
  * */
 const activeSpreadsheet = SpreadsheetApp.getActiveSheet();
 
 /**
  * Use the `activeSpreadsheet` object to retrieve the name
- * of the current sheet via the ${@link https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#getName()|`getName()`} method.  
+ * of the current sheet via the **{@link https://developers.google.com/apps-script/reference/spreadsheet/spreadsheet#getName()|getName)}** method.  
  * @constant {string} 
  * */
 const sheetName = activeSpreadsheet.getName();
@@ -60,7 +60,7 @@ const getLastColumnLetter = function getLastColumnLetter() {
 
 /**
  * ## procParams
- * `procParams` is created using values from {@link module:emailConfig~config}.
+ * `procParams` is created using values from {@link module:emailConfig~config|the config object}.
  * **Do not modify the `procParams` object directly!** The parameters 
  * in this `procParams` object will default to the imported config file, 
  * calculating information from the active sheet only where necessary. 
